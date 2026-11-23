@@ -13,6 +13,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <noscript><style>.fade-in { opacity: 1 !important; transform: none !important; }</style></noscript>
     <style>
         /* --- CSS Variables --- */
         :root {
@@ -123,6 +124,7 @@
         /* --- Hero Section --- */
         .hero {
             min-height: 100vh;
+            min-height: 100svh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -174,7 +176,7 @@
         .about-office-highlights li i { color: var(--accent-color); margin-left: 10px; }
 
         /* --- Projects Section --- */
-        .projects-filters { text-align: center; margin-bottom: 40px; }
+        .projects-filters { text-align: center; margin-bottom: 40px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
         .filter-btn {
             background: var(--secondary-color);
             color: var(--text-light);
@@ -257,14 +259,26 @@
         .project-card[data-category="shop-drawing"] .project-animation {
             background-color: var(--primary-color);
             background-image:
-                linear-gradient(90deg, var(--accent-color) 1px, transparent 1px),
-                linear-gradient(var(--accent-color) 1px, transparent 1px);
+                linear-gradient(90deg, rgba(212,175,55,0.35) 1px, transparent 1px),
+                linear-gradient(rgba(212,175,55,0.35) 1px, transparent 1px);
             background-size: 20px 20px;
-            animation: blueprint-pulse 3s infinite ease-in-out;
+            animation: blueprint-shimmer 6s infinite linear;
         }
-        @keyframes blueprint-pulse {
-            0%, 100% { opacity: 0.2; }
-            50% { opacity: 0.5; }
+        .project-card[data-category="shop-drawing"] .project-animation::after {
+            content: '\F568';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 3rem;
+            color: var(--accent-color);
+            opacity: 0.85;
+            background: var(--primary-color);
+            padding: 18px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-color);
+        }
+        @keyframes blueprint-shimmer {
+            0% { background-position: 0 0; }
+            100% { background-position: 20px 20px; }
         }
 
         /* --- QS Animation (Growing Bars) --- */
@@ -445,13 +459,26 @@
 
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            .hero-content .tagline { font-size: 1.2rem; }
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; margin-bottom: 2rem; }
+            section { padding: 56px 16px; }
+            .hero-content .tagline { font-size: 1.1rem; }
+            .hero-content .owner-name { font-size: 1rem; }
             .about-office-content { flex-direction: column; }
             .contact-info { flex-direction: column; gap: 20px; }
-            .bg-3d-text { font-size: 5rem; }
+            .bg-3d-text { display: none; }
+            .grid-background { animation: none; }
             .contact-form-container { padding: 20px; }
+            .projects-grid { grid-template-columns: 1fr; gap: 20px; }
+            .project-animation { height: 170px; }
+            .filter-btn { padding: 8px 18px; font-size: 0.9rem; }
+            input, select, textarea { font-size: 16px; }
+            .fade-in { transform: translateY(16px); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            .fade-in { opacity: 1; transform: none; }
         }
     </style>
 </head>
@@ -747,6 +774,7 @@
     <script>
         // Fade-in animation on scroll
         const faders = document.querySelectorAll('.fade-in');
+        if (!('IntersectionObserver' in window)) { faders.forEach(f => f.classList.add('visible')); }
         const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
         const appearOnScroll = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
