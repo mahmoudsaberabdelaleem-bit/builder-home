@@ -557,6 +557,96 @@
         }
 
 
+        /* --- Site Nav (proposed) --- */
+        .site-nav {
+            position: fixed;
+            top: 0; right: 0; left: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 10px 20px;
+            background: rgba(10, 10, 10, 0.88);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+        }
+        .site-nav-brand {
+            font-family: var(--font-heading);
+            color: var(--accent-color);
+            font-size: 1.05rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .site-nav-links {
+            display: flex;
+            gap: 4px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .site-nav-links::-webkit-scrollbar { display: none; }
+        .site-nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 6px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+        .site-nav-links a:hover { color: var(--accent-color); }
+        .site-nav-links a.site-nav-cta {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        .site-nav-links a.site-nav-cta:hover { color: var(--primary-color); opacity: 0.9; }
+        .bh-site section { scroll-margin-top: 70px; }
+
+        /* --- Process Section (proposed) --- */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .process-card {
+            background-color: var(--secondary-color);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 12px;
+            padding: 28px 24px;
+            text-align: center;
+        }
+        .process-number {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .process-card h3 {
+            font-family: var(--font-heading);
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .process-card p { color: var(--text-muted); font-size: 0.98rem; }
+
+        @media (max-width: 768px) {
+            .site-nav { padding: 8px 12px; gap: 10px; }
+            .site-nav-brand { font-size: 0.95rem; }
+            .site-nav-links a { font-size: 0.82rem; padding: 5px 10px; }
+            .process-grid { grid-template-columns: 1fr; gap: 18px; }
+            .process-card { padding: 22px 18px; }
+        }
+
+
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation: none !important; transition: none !important; }
             .fade-in { opacity: 1; transform: none; }
@@ -572,6 +662,19 @@
         <span class="bg-3d-text" style="top: 80%; left: 30%; animation-delay: -20s;">Mahmoud</span>
     </div>
     <div class="grid-background"></div>
+
+    <!-- =================== SITE NAV (proposed) =================== -->
+    <nav class="site-nav">
+        <span class="site-nav-brand">Builder Home</span>
+        <div class="site-nav-links">
+            <a href="#home">الرئيسية</a>
+            <a href="#projects">أعمالنا</a>
+            <a href="#deliverables">التسليمات</a>
+            <a href="#process">إزاي بنشتغل</a>
+            <a href="#about-owner">عن المهندس</a>
+            <a href="#contact" class="site-nav-cta">تواصل</a>
+        </div>
+    </nav>
 
     <!-- =================== HERO SECTION =================== -->
     <header class="hero" id="home">
@@ -828,6 +931,28 @@
             </div>
             <p class="deliverables-note">نطاق التسليمات ومدة التنفيذ يتم الاتفاق عليهما كتابيًا حسب طبيعة مشروعك، دون مفاجآت.</p>
         </section>
+        <!-- =================== PROCESS SECTION (proposed, pending approval) =================== -->
+        <section class="process fade-in" id="process">
+            <h2>إزاي بنشتغل؟</h2>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">١</div>
+                    <h3>ابعت تفاصيل مشروعك</h3>
+                    <p>لوحات أو وصف للمطلوب، ونتواصل معك لتوضيح أي نقطة قبل البدء.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">٢</div>
+                    <h3>نطاق وسعر متفق عليهم</h3>
+                    <p>قبل بدء الشغل، تعرف بالضبط التسليمات والتكلفة — متفق عليها كتابيًا.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">٣</div>
+                    <h3>تنفيذ وتسليم</h3>
+                    <p>ننفذ الشغل ونسلمك الملفات المتفق عليها كاملة، وتقدر تراجعها وتسأل عن أي بند.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- =================== ABOUT OWNER SECTION =================== -->
         <section class="about-owner fade-in" id="about-owner">
             <h2>نبذة عن المالك</h2>
