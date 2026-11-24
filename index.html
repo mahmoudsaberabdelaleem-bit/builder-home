@@ -809,6 +809,21 @@
             .site-nav-links a { text-align: center; padding: 10px; }
         }
 
+        
+        /* --- Hero secondary CTA + nav active state --- */
+        .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .cta-button.cta-secondary {
+            background: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+        .cta-button.cta-secondary:hover {
+            background: rgba(212, 175, 55, 0.12);
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        .site-nav-links a.active { color: var(--accent-color); border-bottom: 2px solid var(--accent-color); }
+
         </style>
 </head>
 <body>
@@ -840,8 +855,11 @@
         <div class="hero-content">
             <h1>Builder Home</h1>
             <p class="tagline">تصميم، رسومات تنفيذية، وحصر كميات، بخبرة ١٥ سنة في المكتب الفني وتسعير المناقصات</p>
-            <p class="owner-name">م. محمود صابر | استشاري هندسة مدنية</p>
-            <a href="#contact" class="cta-button">تواصل معنا الآن</a>
+            <p class="owner-name">م. محمود صابر | مهندس مدني — مدير مكتب فني</p>
+            <div class="hero-ctas">
+                <a href="#contact" class="cta-button">تواصل معنا الآن</a>
+                <a href="#work-sample" class="cta-button cta-secondary">شاهد نموذجًا من الشغل</a>
+            </div>
         </div>
     </header>
 
@@ -853,11 +871,11 @@
                 <div class="about-office-text">
                     <h3>شريكك نحو التميز الهندسي</h3>
                     <p>في Builder Home، لا نقتصر على تقديم خدمات هندسية فحسب، بل نقدم شراكة استراتيجية مبنية على الثقة والخبرة العميقة. نحن نحول الأفكار المجردة إلى معالم حقيقية تليق برؤيتك.</p>
-                    <p>لماذا نحن الخيار الأمثل؟ لأننا نجمع بين الدقة الأكاديمية والخبرة العملية الواسعة في أسواق متنوعة مثل مصر والخليج، مما يمنحنا القدرة على تقديم حلول مبتكرة وفعالة تتوافق مع أعلى المعايير العالمية.</p>
+                    <p>لماذا نحن الخيار الأمثل؟ لأننا نجمع بين الدقة الأكاديمية وخبرة عملية تمتد لـ 15 عامًا داخل مصر وخارجها، مما يمنحنا القدرة على تقديم حلول عملية تتوافق مع الكود والمعايير المعتمدة.</p>
                     <ul class="about-office-highlights">
                         <li><i class="fas fa-check-circle"></i> رؤية هندسية شاملة من الفكرة إلى التسليم</li>
-                        <li><i class="fas fa-check-circle"></i> فريق عمل متخصص في كافة التخصصات المدنية</li>
-                        <li><i class="fas fa-check-circle"></i> التزام مطلق بالجودة والمواعيد النهائية</li>
+                        <li><i class="fas fa-check-circle"></i> إشراف مباشر من م. محمود صابر على كل مرحلة</li>
+                        <li><i class="fas fa-check-circle"></i> نطاق وتكلفة متفق عليهم كتابيًا قبل بدء أي شغل</li>
                         <li><i class="fas fa-check-circle"></i> حلول مخصصة تناسب ميزانيتك وتطلعاتك</li>
                     </ul>
                 </div>
@@ -1044,7 +1062,7 @@
             <div class="about-owner-content">
                 <div class="about-owner-text">
                     <h3>م. محمود صابر</h3>
-                    <p>القائد والرؤية خلف Builder Home. بخبرة تمتد لـ 15 عامًا، قمت ببناء مسيرة مهنية حافلة بالإنجازات في مجال الهندسة المدنية، بدأت من مصر وامتدت لتشمل أسواق الخليج المزدهرة.</p>
+                    <p>القائد والرؤية خلف Builder Home. بخبرة تمتد لـ 15 عامًا، قمت ببناء مسيرة مهنية حافلة بالإنجازات في مجال الهندسة المدنية، داخل مصر وخارجها.</p>
                     <p>تخصصت في إدارة وتطوير المكاتب الفنية، حيث أؤمن بأن الدقة في التخطيط والشفافية في التنفيذ هما حجر الزاوية لنجاح أي مشروع. أسعى دائمًا لتطبيق أحدث التقنيات والمعايير العالمية في كل مشروع نعمل عليه، لضمان تقديم قيمة حقيقية ومستدامة لعملائنا.</p>
                     <p>قيادتي لـ Builder Home ليست مجرد وظيفة، بل هي التزام شخصي بتحقيق التميز في كل تفصيلة.</p>
                 </div>
@@ -1147,6 +1165,22 @@
                 navToggle.setAttribute('aria-expanded', 'false');
             }));
         }
+
+        // Nav active section highlight
+        const navAnchors = document.querySelectorAll('.site-nav-links a[href^="#"]');
+        const sectionFor = {};
+        navAnchors.forEach(a => { const t = document.querySelector(a.getAttribute('href')); if (t) sectionFor[a.getAttribute('href')] = a; });
+        const sections = Object.keys(sectionFor).map(id => document.querySelector(id)).filter(Boolean);
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navAnchors.forEach(a => a.classList.remove('active'));
+                    const link = sectionFor['#' + entry.target.id];
+                    if (link) link.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-40% 0px -55% 0px' });
+        sections.forEach(sec => navObserver.observe(sec));
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
