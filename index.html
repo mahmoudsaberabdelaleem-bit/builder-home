@@ -638,6 +638,36 @@
         }
         .process-card p { color: var(--text-muted); font-size: 0.98rem; }
 
+        /* --- Quote CTA band --- */
+        .cta-band { text-align: center; }
+        .cta-band p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            max-width: 640px;
+            margin: -1.5rem auto 2rem;
+        }
+        .cta-band a.inline-whatsapp { color: var(--accent-color); }
+
+        /* --- Form guidance --- */
+        .field-hint {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 400;
+            margin: -4px 0 8px;
+        }
+        .form-group textarea::placeholder {
+            color: #8a8a8a;
+            opacity: 1;
+        }
+        .form-whatsapp-note {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 18px 0 0;
+        }
+        .form-whatsapp-note a { color: var(--accent-color); text-decoration: none; }
+        .form-whatsapp-note a:hover { text-decoration: underline; }
+
         @media (max-width: 768px) {
             .site-nav { padding: 8px 12px; gap: 10px; }
             .site-nav-brand { font-size: 0.95rem; }
@@ -966,6 +996,13 @@
             </div>
         </section>
 
+        <!-- =================== QUOTE CTA BAND =================== -->
+        <section class="cta-band fade-in" id="quote">
+            <h2>جاهز تطلب عرض سعر؟</h2>
+            <p>ابعت تفاصيل مشروعك من النموذج أو على <a href="https://wa.me/201069609878" target="_blank" rel="noopener" class="inline-whatsapp">واتساب</a>، ونحدد لك النطاق والتكلفة كتابيًا قبل بدء أي شغل.</p>
+            <a href="https://wa.me/201069609878" target="_blank" rel="noopener" class="cta-button">اطلب عرض سعر</a>
+        </section>
+
         <!-- =================== CONTACT SECTION =================== -->
         <section class="contact fade-in" id="contact">
             <h2>تواصل معنا</h2>
@@ -998,10 +1035,12 @@
                     </div>
                     <div class="form-group">
                         <label for="message">رسالتك</label>
-                        <textarea id="message" name="message" required></textarea>
+                        <p class="field-hint">عشان نسعّر صح، اذكر: نوع المشروع، المساحة، الموقع، اللوحات المتاحة، والمدة المطلوبة.</p>
+                        <textarea id="message" name="message" required placeholder="مثال: حصر كميات لفيلا ٣٠٠ متر في التجمع الخامس، اللوحات المعمارية متاحة، والتسليم المطلوب خلال أسبوعين."></textarea>
                     </div>
                     <button type="submit" class="submit-btn">إرسال الرسالة</button>
                 </form>
+                <p class="form-whatsapp-note">عندك لوحات أو ملفات؟ ابعتها مباشرة على <a href="https://wa.me/201069609878" target="_blank" rel="noopener">واتساب</a> مع اسمك ونوع المشروع.</p>
             </div>
 
             <div class="contact-info">
