@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Builder Home | هندسة التميز</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <noscript><style>.fade-in { opacity: 1 !important; transform: none !important; }</style></noscript>
+    <style>
+        /* --- CSS Variables --- */
+        :root {
+            --primary-color: #0a0a0a;
+            --secondary-color: #1c1c1c;
+            --accent-color: #d4af37;
+            --text-light: #f4f4f4;
+            --text-muted: #aaaaaa;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Cairo', sans-serif;
+        }
+
+        /* --- Global Styles & Resets --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- 3D Animated Background with Name --- */
+        .bg-3d-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .bg-3d-text {
+            position: absolute;
+            font-family: var(--font-heading);
+            font-size: 10rem;
+            font-weight: 900;
+            color: var(--accent-color);
+            opacity: 0.03;
+            white-space: nowrap;
+            transform-style: preserve-3d;
+            animation: float-3d 30s infinite linear;
+        }
+        
+        @keyframes float-3d {
+            0% { transform: rotateY(0deg) rotateX(0deg) translateZ(-500px); }
+            100% { transform: rotateY(360deg) rotateX(10deg) translateZ(-500px); }
+        }
+
+        /* --- Blueprint Grid Background --- */
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(212, 175, 55, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 175, 55, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            animation: grid-move 20s linear infinite;
+        }
+
+        @keyframes grid-move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        h1 { font-size: 4rem; }
+        h2 { font-size: 3rem; text-align: center; margin-bottom: 3rem; position: relative; padding-bottom: 1rem;}
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        /* --- Sections --- */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 100vh;
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.9)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+        }
+
+        .hero-content h1 { color: var(--accent-color); margin-bottom: 0.5rem; animation: fadeInDown 1s ease-out; }
+        .hero-content .tagline { font-size: 1.5rem; color: var(--text-light); margin-bottom: 1rem; animation: fadeInUp 1s ease-out 0.5s both; }
+        .hero-content .owner-name { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2rem; animation: fadeInUp 1s ease-out 0.7s both; }
+
+        /* --- Buttons --- */
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+            background-color: #fff;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); }
+            50% { box-shadow: 0 5px 25px rgba(212, 175, 55, 0.6); }
+            100% { box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); }
+        }
+
+        /* --- About Office Section --- */
+        .about-office { background-color: var(--secondary-color); }
+        .about-office-content { display: flex; align-items: center; gap: 40px; }
+        .about-office-text { flex: 1; }
+        .about-office-text h3 { font-size: 2rem; margin-bottom: 1rem; color: var(--accent-color); }
+        .about-office-text p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+        .about-office-highlights { list-style: none; }
+        .about-office-highlights li { margin-bottom: 0.8rem; font-size: 1.1rem; }
+        .about-office-highlights li i { color: var(--accent-color); margin-left: 10px; }
+
+        /* --- Projects Section --- */
+
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        
+        .project-card {
+            background-color: var(--secondary-color);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border: 1px solid transparent;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) rotateX(2deg) rotateY(-2deg);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+            border-color: var(--accent-color);
+        }
+        
+        /* --- Project Animation Container --- */
+        .project-animation {
+            width: 100%;
+            height: 200px;
+            background-color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- Design Project Animation (Rotating Cube) --- */
+        .project-card[data-category="design"] .project-animation {
+            perspective: 200px;
+        }
+        .cube {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate-cube 6s infinite linear;
+        }
+        .cube-face {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--accent-color);
+            background: rgba(212, 175, 55, 0.1);
+        }
+        .cube-face:nth-child(1) { transform: rotateY(0deg) translateZ(40px); }
+        .cube-face:nth-child(2) { transform: rotateY(90deg) translateZ(40px); }
+        .cube-face:nth-child(3) { transform: rotateY(180deg) translateZ(40px); }
+        .cube-face:nth-child(4) { transform: rotateY(-90deg) translateZ(40px); }
+        .cube-face:nth-child(5) { transform: rotateX(90deg) translateZ(40px); }
+        .cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(40px); }
+        @keyframes rotate-cube {
+            from { transform: rotateX(0deg) rotateY(0deg); }
+            to { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        /* --- Shop Drawing Animation (Blueprint Grid) --- */
+        .project-card[data-category="shop-drawing"] .project-animation {
+            background-color: var(--primary-color);
+            background-image:
+                linear-gradient(90deg, rgba(212,175,55,0.35) 1px, transparent 1px),
+                linear-gradient(rgba(212,175,55,0.35) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: blueprint-shimmer 6s infinite linear;
+        }
+        .project-card[data-category="shop-drawing"] .project-animation::after {
+            content: '\F568';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 3rem;
+            color: var(--accent-color);
+            opacity: 0.85;
+            background: var(--primary-color);
+            padding: 18px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-color);
+        }
+        @keyframes blueprint-shimmer {
+            0% { background-position: 0 0; }
+            100% { background-position: 20px 20px; }
+        }
+
+        /* --- QS Animation (Growing Bars) --- */
+        .project-card[data-category="qs"] .project-animation {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            padding: 20px;
+        }
+        .bar {
+            width: 15%;
+            background: linear-gradient(to top, var(--accent-color), rgba(212, 175, 55, 0.3));
+            border-radius: 5px 5px 0 0;
+            animation: grow-bar 4s infinite ease-in-out;
+        }
+        .bar:nth-child(1) { animation-delay: 0s; }
+        .bar:nth-child(2) { animation-delay: 0.5s; }
+        .bar:nth-child(3) { animation-delay: 1s; }
+        .bar:nth-child(4) { animation-delay: 1.5s; }
+        @keyframes grow-bar {
+            0%, 100% { height: 20%; }
+            50% { height: 80%; }
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+        
+        .project-info .project-type {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--text-muted);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+        }
+
+        .project-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .project-info .project-location {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+        }
+        .project-info .project-location i {
+            margin-left: 5px;
+        }
+        
+        .more-projects-hint {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+        .more-projects-hint a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .more-projects-hint a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- About Owner Section --- */
+        .about-owner { background-color: var(--secondary-color); }
+        .about-owner-content { /* Removed flex properties */ }
+        .about-owner-text { /* No longer flex: 1, just normal text */ }
+        .about-owner-text h3 { font-size: 2rem; margin-bottom: 1rem; color: var(--accent-color); }
+        .about-owner-text p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+
+        /* --- Contact Form Section --- */
+        .contact { background-color: var(--secondary-color); text-align: center; }
+        .contact-form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--primary-color);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid #333;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--secondary-color);
+            border: 1px solid #444;
+            border-radius: 8px;
+            color: var(--text-light);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+        }
+        
+        .contact-info {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        .contact-item { font-size: 1.2rem; }
+        .contact-item a { color: var(--accent-color); text-decoration: none; transition: color 0.3s; }
+        .contact-item a:hover { color: #fff; }
+        .contact-item i { margin-left: 10px; }
+
+
+        /* --- Footer --- */
+        footer { text-align: center; padding: 20px; background-color: var(--primary-color); border-top: 1px solid #333; }
+        footer p { color: var(--text-muted); }
+
+        /* --- Animations on Scroll --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; margin-bottom: 2rem; }
+            section { padding: 56px 16px; }
+            .hero-content .tagline { font-size: 1.1rem; }
+            .hero-content .owner-name { font-size: 1rem; }
+            .about-office-content { flex-direction: column; }
+            .contact-info { flex-direction: column; gap: 20px; }
+            .bg-3d-text { display: none; }
+            .grid-background { animation: none; }
+            .contact-form-container { padding: 20px; }
+            .projects-grid { grid-template-columns: 1fr; gap: 20px; }
+            .project-animation { height: 170px; }
+            input, select, textarea { font-size: 16px; }
+            .fade-in { transform: translateY(16px); }
+        }
+
+        /* --- Deliverables Section (proposed) --- */
+        .deliverables-intro {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: -1rem auto 2.5rem;
+        }
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .deliverable-card {
+            background-color: var(--secondary-color);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 12px;
+            padding: 28px 24px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .deliverable-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-color);
+        }
+        .deliverable-icon {
+            width: 56px;
+            height: 56px;
+            margin-bottom: 18px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            font-size: 1.4rem;
+        }
+        .deliverable-card h3 {
+            font-family: var(--font-heading);
+            color: var(--accent-color);
+            font-size: 1.25rem;
+            margin-bottom: 14px;
+        }
+        .deliverable-sub {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            margin: -8px 0 14px;
+            text-align: right;
+        }
+        .deliverable-icon svg { width: 26px; height: 26px; }
+        .deliverable-card ul { list-style: none; }
+        .deliverable-card li {
+            position: relative;
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            margin-bottom: 10px;
+            padding-right: 24px;
+        }
+        .deliverable-card li::before {
+            content: '';
+            position: absolute;
+            right: 2px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-color);
+            clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        }
+        .deliverables-note {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .deliverables-grid { grid-template-columns: 1fr; gap: 18px; }
+            .deliverable-card { padding: 22px 18px; }
+        }
+
+
+        /* --- Site Nav (proposed) --- */
+        .site-nav {
+            position: fixed;
+            top: 0; right: 0; left: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 10px 20px;
+            background: rgba(10, 10, 10, 0.88);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+        }
+        .site-nav-brand {
+            font-family: var(--font-heading);
+            color: var(--accent-color);
+            font-size: 1.05rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .site-nav-links {
+            display: flex;
+            gap: 4px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .site-nav-links::-webkit-scrollbar { display: none; }
+        .site-nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 6px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+        .site-nav-links a:hover { color: var(--accent-color); }
+        .site-nav-links a.site-nav-cta {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        .site-nav-links a.site-nav-cta:hover { color: var(--primary-color); opacity: 0.9; }
+        .bh-site section { scroll-margin-top: 70px; }
+
+        /* --- Process Section (proposed) --- */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .process-card {
+            background-color: var(--secondary-color);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 12px;
+            padding: 28px 24px;
+            text-align: center;
+        }
+        .process-number {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .process-card h3 {
+            font-family: var(--font-heading);
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .process-card p { color: var(--text-muted); font-size: 0.98rem; }
+
+        /* --- Quote CTA band --- */
+        .cta-band { text-align: center; }
+        .cta-band p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            max-width: 640px;
+            margin: -1.5rem auto 2rem;
+        }
+        .cta-band a.inline-whatsapp { color: var(--accent-color); }
+
+        /* --- Form guidance --- */
+        .field-hint {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 400;
+            margin: -4px 0 8px;
+        }
+        .form-group textarea::placeholder {
+            color: #8a8a8a;
+            opacity: 1;
+        }
+        .form-whatsapp-note {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 18px 0 0;
+        }
+        .form-whatsapp-note a { color: var(--accent-color); text-decoration: none; }
+        .form-whatsapp-note a:hover { text-decoration: underline; }
+
+        /* --- WhatsApp contact panel --- */
+        .whatsapp-panel { text-align: center; padding: 2.2rem 1.5rem; }
+        .whatsapp-panel-icon { font-size: 3.6rem; color: var(--accent-color); margin-bottom: 1rem; }
+        .whatsapp-panel h3 { color: #fff; font-size: 1.8rem; margin: 0 0 0.9rem; }
+        .whatsapp-panel-hint { color: var(--text-muted); font-size: 1rem; line-height: 1.9; max-width: 520px; margin: 0 auto; }
+        .whatsapp-cta {
+            display: inline-block;
+            width: auto;
+            padding: 16px 56px;
+            margin-top: 1.6rem;
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .site-nav { padding: 8px 12px; gap: 10px; }
+            .site-nav-brand { font-size: 0.95rem; }
+            .site-nav-links a { font-size: 0.82rem; padding: 5px 10px; }
+            .process-grid { grid-template-columns: 1fr; gap: 18px; }
+            .process-card { padding: 22px 18px; }
+        }
+
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            .fade-in { opacity: 1; transform: none; }
+        }
+            /* --- Work sample section (proposed) --- */
+        .work-sample .sample-intro {
+            color: var(--text-muted);
+            max-width: 720px;
+            margin: -1.5rem auto 2rem;
+            text-align: center;
+            font-size: 1rem;
+        }
+        .sample-stats { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 36px; }
+        .sample-stat {
+            background: var(--secondary-color);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 12px;
+            padding: 16px 26px;
+            text-align: center;
+        }
+        .stat-num { display: block; font-family: var(--font-heading); color: var(--accent-color); font-size: 1.8rem; font-weight: 700; }
+        .stat-label { color: var(--text-muted); font-size: 0.85rem; }
+        .sample-visual {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            background: var(--secondary-color);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            padding: 28px 24px;
+            margin-bottom: 40px;
+        }
+        @media (min-width: 900px) { .sample-visual { grid-template-columns: 1fr 1fr; } }
+        .sample-chart h3 {
+            font-family: var(--font-heading);
+            color: var(--accent-color);
+            font-size: 1rem;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .bar-label { flex: 0 0 108px; color: var(--text-light); font-size: 0.85rem; text-align: right; }
+        .bar-track { flex: 1; background: rgba(255, 255, 255, 0.06); border-radius: 6px; height: 22px; overflow: hidden; }
+        .bar-fill { height: 100%; background: linear-gradient(90deg, rgba(212, 175, 55, 0.55), var(--accent-color)); border-radius: 6px; }
+        .bar-value { flex: 0 0 48px; color: var(--accent-color); font-weight: 700; font-size: 0.9rem; text-align: left; }
+        .sample-chart-note {
+            grid-column: 1 / -1;
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            text-align: center;
+            margin: 4px 0 0;
+        }
+        .sample-tables-title {
+            font-family: var(--font-heading);
+            color: var(--text-light);
+            font-size: 1.15rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sample-tables { display: grid; grid-template-columns: 1fr; gap: 28px; }
+        @media (min-width: 1024px) { .sample-tables { grid-template-columns: 1fr 1.2fr; } }
+        .sample-table-wrap {
+            overflow-x: auto;
+            background: var(--secondary-color);
+            border: 1px solid #2c2c2c;
+            border-radius: 14px;
+            padding: 20px 16px;
+        }
+        .sample-table-wrap h3 {
+            font-family: var(--font-heading);
+            color: var(--accent-color);
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .sample-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .rebar-table { min-width: 0; }
+        .sample-table th, .sample-table td { border: 1px solid #2c2c2c; padding: 7px 8px; text-align: center; color: var(--text-light); }
+        .sample-table thead th { background: rgba(212, 175, 55, 0.08); color: var(--accent-color); font-weight: 700; }
+        .sample-table tbody tr:nth-child(even) td { background: rgba(255, 255, 255, 0.025); }
+        .sample-table tr.total td { background: rgba(212, 175, 55, 0.12); font-weight: 700; color: var(--accent-color); }
+        .sample-footnote { color: var(--text-muted); font-size: 0.8rem; text-align: center; margin-top: 16px; }
+        @media (max-width: 768px) {
+            .rebar-table { min-width: 0; font-size: 0.68rem; }
+            .rebar-table th, .rebar-table td { padding: 4px 3px; }
+            .sample-table { font-size: 0.78rem; }
+            .sample-visual { padding: 20px 14px; }
+            .bar-label { flex-basis: 84px; font-size: 0.75rem; }
+            .bar-value { flex-basis: 40px; font-size: 0.8rem; }
+        }
+
+        
+        /* --- Experience domains (premium refresh) --- */
+        .projects-intro {
+            color: var(--text-muted);
+            max-width: 760px;
+            margin: -1.5rem auto 2.5rem;
+            text-align: center;
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+        .domains-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; }
+        .domain-card {
+            background: var(--secondary-color);
+            border: 1px solid #2c2c2c;
+            border-radius: 16px;
+            padding: 30px 24px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .domain-card:hover { transform: translateY(-6px); border-color: rgba(212, 175, 55, 0.45); }
+        .domain-icon {
+            width: 64px; height: 64px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+        .domain-card h3 { font-family: var(--font-heading); color: var(--accent-color); font-size: 1.15rem; margin-bottom: 10px; }
+        .domain-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; }
+
+        /* --- Mobile nav toggle --- */
+        .site-nav-toggle {
+            display: none;
+            background: none;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 8px;
+            padding: 8px 10px;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .site-nav-toggle span { display: block; width: 18px; height: 2px; background: var(--accent-color); border-radius: 2px; }
+        @media (max-width: 900px) {
+            .site-nav { flex-wrap: wrap; }
+            .site-nav-toggle { display: flex; }
+            .site-nav-links {
+                display: none;
+                flex-basis: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 4px;
+                padding-top: 10px;
+            }
+            .site-nav-links.open { display: flex; }
+            .site-nav-links a { text-align: center; padding: 10px; }
+        }
+
+        
+        /* --- Hero secondary CTA + nav active state --- */
+        .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .cta-button.cta-secondary {
+            background: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+        .cta-button.cta-secondary:hover {
+            background: rgba(212, 175, 55, 0.12);
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        .site-nav-links a.active { color: var(--accent-color); border-bottom: 2px solid var(--accent-color); }
+
+        </style>
+</head>
+<body>
+
+    <!-- 3D Animated Background -->
+    <div class="bg-3d-animation">
+        <span class="bg-3d-text" style="top: 10%; left: 10%; animation-delay: 0s;">Mahmoud</span>
+        <span class="bg-3d-text" style="top: 50%; left: 60%; animation-delay: -10s; animation-direction: reverse;">Saber</span>
+        <span class="bg-3d-text" style="top: 80%; left: 30%; animation-delay: -20s;">Mahmoud</span>
+    </div>
+    <div class="grid-background"></div>
+
+    <!-- =================== SITE NAV (proposed) =================== -->
+    <nav class="site-nav">
+        <span class="site-nav-brand">Builder Home</span>
+        <button class="site-nav-toggle" aria-label="القائمة" aria-expanded="false"><span></span><span></span><span></span></button>
+        <div class="site-nav-links">
+            <a href="#home">الرئيسية</a>
+            <a href="#projects">أعمالنا</a>
+            <a href="#deliverables">التسليمات</a>
+            <a href="#process">إزاي بنشتغل</a>
+            <a href="#about-owner">عن المهندس</a>
+            <a href="#contact" class="site-nav-cta">تواصل</a>
+        </div>
+    </nav>
+
+    <!-- =================== HERO SECTION =================== -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <h1>Builder Home</h1>
+            <p class="tagline">تصميم، رسومات تنفيذية، وحصر كميات، بخبرة ١٥ سنة في المكتب الفني وتسعير المناقصات</p>
+            <p class="owner-name">م. محمود صابر | مهندس مدني — مدير مكتب فني</p>
+            <div class="hero-ctas">
+                <a href="#contact" class="cta-button">تواصل معنا الآن</a>
+                <a href="#work-sample" class="cta-button cta-secondary">شاهد نموذجًا من الشغل</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- =================== ABOUT OFFICE SECTION =================== -->
+        <section class="about-office fade-in" id="about-office">
+            <h2>Builder Home</h2>
+            <div class="about-office-content">
+                <div class="about-office-text">
+                    <h3>شريكك نحو التميز الهندسي</h3>
+                    <p>في Builder Home، لا نقتصر على تقديم خدمات هندسية فحسب، بل نقدم شراكة استراتيجية مبنية على الثقة والخبرة العميقة. نحن نحول الأفكار المجردة إلى معالم حقيقية تليق برؤيتك.</p>
+                    <p>لماذا نحن الخيار الأمثل؟ لأننا نجمع بين الدقة الأكاديمية وخبرة عملية تمتد لـ 15 عامًا داخل مصر وخارجها، مما يمنحنا القدرة على تقديم حلول عملية تتوافق مع الكود والمعايير المعتمدة.</p>
+                    <ul class="about-office-highlights">
+                        <li><i class="fas fa-check-circle"></i> رؤية هندسية شاملة من الفكرة إلى التسليم</li>
+                        <li><i class="fas fa-check-circle"></i> إشراف مباشر من م. محمود صابر على كل مرحلة</li>
+                        <li><i class="fas fa-check-circle"></i> نطاق وتكلفة متفق عليهم كتابيًا قبل بدء أي شغل</li>
+                        <li><i class="fas fa-check-circle"></i> حلول مخصصة تناسب ميزانيتك وتطلعاتك</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================== PROJECTS SECTION =================== -->
+        <section class="projects fade-in" id="projects">
+            <h2>مجالات خبرتنا</h2>
+            <p class="projects-intro">شارك م. محمود صابر في مشروعات مدارس وجامعات ومستشفيات وأبراج سكنية وفيلات ومحطات معالجة وخزانات، داخل مصر وخارجها، في أعمال التصميم الإنشائي والمكتب الفني وحصر الكميات.</p>
+            <div class="domains-grid">
+                <div class="domain-card">
+                    <div class="domain-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg></div>
+                    <h3>فيلات وأبراج سكنية</h3>
+                    <p>تصميم إنشائي، لوحات تنفيذية للحديد والخرسانة، وحصر كميات للمباني السكنية بمختلف مساحاتها.</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9 12 4l10 5-10 5L2 9z"/><path d="M6 11.5V17c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5"/><path d="M22 9v6"/></svg></div>
+                    <h3>مدارس وجامعات</h3>
+                    <p>أعمال مكتب فني وتصميم لمنشآت تعليمية بمتطلباتها الإنشائية والوظيفية.</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M12 8v6M9 11h6"/><path d="M9 21v-3h6v3"/></svg></div>
+                    <h3>مستشفيات</h3>
+                    <p>منشآت صحية بأنظمة إنشائية تراعي المتطلبات التخصصية والأحمال الخاصة.</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8c2 0 2.5 1.5 4.5 1.5S9 8 11 8s2.5 1.5 4.5 1.5S18 8 20 8"/><path d="M2 13c2 0 2.5 1.5 4.5 1.5S9 13 11 13s2.5 1.5 4.5 1.5S18 13 20 13"/><path d="M2 18c2 0 2.5 1.5 4.5 1.5S9 18 11 18s2.5 1.5 4.5 1.5S18 18 20 18"/></svg></div>
+                    <h3>محطات معالجة وخزانات</h3>
+                    <p>عناصر خرسانية مسلحة لمنشآت المياه والصرف، بما فيها الخزانات بجداول العزل الخاصة بها.</p>
+                </div>
+            </div>
+            <p class="more-projects-hint">
+                نموذج فعلي من جداول حصر الكميات تجده في قسم «نموذج من شغلنا الفعلي» بالأسفل، ولأي نطاق مشابه لمشروعك <a href="#contact">تواصل معنا.</a>
+            </p>
+        </section>
+
+        <!-- =================== DELIVERABLES SECTION (proposed, pending approval) =================== -->
+        <section class="deliverables fade-in" id="deliverables">
+            <h2>ماذا ستستلم؟</h2>
+            <p class="deliverables-intro">قبل بدء أي مشروع، نتفق معك كتابيًا على نطاق العمل. هذه أهم التسليمات في كل خدمة:</p>
+            <div class="deliverables-grid">
+                <div class="deliverable-card">
+                    <div class="deliverable-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 20h16L4 4v16z"/><path d="M9.5 15.5h5l-5-5v5z"/></svg></div>
+                    <h3>التصميم المعماري والإنشائي</h3>
+                    <ul>
+                        <li>لوحات معمارية وإنشائية كاملة بصيغتي DWG وPDF</li>
+                        <li>مذكرة حسابية للعناصر الإنشائية</li>
+                        <li>ملفات مصدرية قابلة للتعديل والطباعة</li>
+                    </ul>
+                </div>
+                <div class="deliverable-card">
+                    <div class="deliverable-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2.5" y="9" width="19" height="6.5" rx="1.2"/><path d="M7 9v3M11 9v3M15 9v3M19 9v3"/></svg></div>
+                    <h3>الرسومات التنفيذية</h3>
+                    <p class="deliverable-sub" dir="ltr">Shop Drawings</p>
+                    <ul>
+                        <li>لوحات تنفيذية مفصلة لكل بند</li>
+                        <li>تنسيق بين اللوحات قبل اعتمادها للتنفيذ</li>
+                        <li>نسخة PDF جاهزة للطباعة وملفات DWG قابلة للتعديل</li>
+                    </ul>
+                </div>
+                <div class="deliverable-card">
+                    <div class="deliverable-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 7.5h7"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 16h.01M12 16h.01M15.5 16h.01"/></svg></div>
+                    <h3>حصر الكميات وتفصيل الأسعار</h3>
+                    <ul>
+                        <li>جدول كميات Excel منظم بالبنود والوحدات</li>
+                        <li>مذكرة أسعار تفصيلية لكل بند</li>
+                        <li>أسلوب حساب واضح يمكنك مراجعته بندًا بندًا</li>
+                    </ul>
+                </div>
+                <div class="deliverable-card">
+                    <div class="deliverable-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-8.5 8.5 8.5 8.5 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 018.5-8.5 8.38 8.38 0 018.5 8.5z"/></svg></div>
+                    <h3>الاستشارة العامة</h3>
+                    <ul>
+                        <li>جلسة مراجعة لمستندات مشروعك أو مشكلتك الفنية</li>
+                        <li>ملخص مكتوب بالملاحظات والتوصيات</li>
+                        <li>إجابات مباشرة على أسئلتك الفنية</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="deliverables-note">نطاق التسليمات ومدة التنفيذ يتم الاتفاق عليهما كتابيًا حسب طبيعة مشروعك، دون مفاجآت.</p>
+        </section>
+        <!-- =================== PROCESS SECTION (proposed, pending approval) =================== -->
+        <section class="work-sample fade-in" id="work-sample">
+            <h2>نموذج من شغلنا الفعلي</h2>
+            <p class="sample-intro">مقتطف من ملف حصر كميات فعلي لفيلا سكنية، بعد إخفاء بيانات العميل والموقع. الكميات خاصة بهذا المشروع وتُعرض لتوضيح أسلوب التسليم، لا كالتزام بكميات أو أسعار مشروعك.</p>
+            <div class="sample-stats">
+                <div class="sample-stat"><span class="stat-num">٣٣٤</span><span class="stat-label">م³ إجمالي الخرسانة</span></div>
+                <div class="sample-stat"><span class="stat-num">٤٥</span><span class="stat-label">طن إجمالي الحديد</span></div>
+                <div class="sample-stat"><span class="stat-num">١٥</span><span class="stat-label">جدولًا تفصيليًا في الملف الكامل</span></div>
+            </div>
+            <div class="sample-visual">
+                <div class="sample-chart">
+                    <h3>توزيع الخرسانة على عناصر المشروع (م³)</h3>
+                    <div class="bar-row"><span class="bar-label">الأسقف</span><div class="bar-track"><div class="bar-fill" style="width: 100%"></div></div><span class="bar-value">133</span></div>
+                    <div class="bar-row"><span class="bar-label">الأساسات والميدات</span><div class="bar-track"><div class="bar-fill" style="width: 84%"></div></div><span class="bar-value">112</span></div>
+                    <div class="bar-row"><span class="bar-label">الأعمدة</span><div class="bar-track"><div class="bar-fill" style="width: 34%"></div></div><span class="bar-value">45</span></div>
+                    <div class="bar-row"><span class="bar-label">الخزانات والمسبح</span><div class="bar-track"><div class="bar-fill" style="width: 33%"></div></div><span class="bar-value">44</span></div>
+                </div>
+                <div class="sample-chart">
+                    <h3>توزيع الحديد على عناصر المشروع (طن)</h3>
+                    <div class="bar-row"><span class="bar-label">الأسقف</span><div class="bar-track"><div class="bar-fill" style="width: 100%"></div></div><span class="bar-value">19.25</span></div>
+                    <div class="bar-row"><span class="bar-label">الأعمدة</span><div class="bar-track"><div class="bar-fill" style="width: 63%"></div></div><span class="bar-value">12.2</span></div>
+                    <div class="bar-row"><span class="bar-label">الأساسات والميدات</span><div class="bar-track"><div class="bar-fill" style="width: 40%"></div></div><span class="bar-value">7.65</span></div>
+                    <div class="bar-row"><span class="bar-label">الخزانات والمسبح</span><div class="bar-track"><div class="bar-fill" style="width: 31%"></div></div><span class="bar-value">5.9</span></div>
+                </div>
+                <p class="sample-chart-note">التجميع بالفئات محسوب من الجداول التفصيلية بالأسفل كما في الملف الأصلي.</p>
+            </div>
+            <h3 class="sample-tables-title">الجداول التفصيلية كما في الملف</h3>
+            <div class="sample-tables">
+                <div class="sample-table-wrap">
+                    <h3>جدول التجميعي: كميات الخرسانات</h3>
+                    <table class="sample-table">
+                        <thead><tr><th>العنصر</th><th>نوع الخرسانة</th><th>الكمية (م³)</th></tr></thead>
+                        <tbody>
+                            <tr><td>القواعد العادية</td><td>20 ميجاباسكال OPC</td><td>15</td></tr>
+                            <tr><td>القواعد المسلحة</td><td>30 ميجاباسكال SRC</td><td>33</td></tr>
+                            <tr><td>رقاب الأعمدة</td><td>35 ميجاباسكال SRC</td><td>8</td></tr>
+                            <tr><td>الشدادات</td><td>30 ميجاباسكال SRC</td><td>13</td></tr>
+                            <tr><td>الميدات</td><td>30 ميجاباسكال SRC</td><td>25</td></tr>
+                            <tr><td>الأرضيات الخرسانية</td><td>20 ميجاباسكال SRC</td><td>26</td></tr>
+                            <tr><td>أعمدة الأرضي</td><td>35 ميجاباسكال OPC</td><td>18</td></tr>
+                            <tr><td>سقف الأرضي</td><td>30 ميجاباسكال OPC</td><td>60</td></tr>
+                            <tr><td>أعمدة الأول</td><td>35 ميجاباسكال OPC</td><td>10</td></tr>
+                            <tr><td>سقف الأول</td><td>30 ميجاباسكال OPC</td><td>45</td></tr>
+                            <tr><td>أعمدة الملحق</td><td>35 ميجاباسكال OPC</td><td>9</td></tr>
+                            <tr><td>سقف الملحق</td><td>30 ميجاباسكال OPC</td><td>28</td></tr>
+                            <tr><td>أرضية الخزانات والمسبح</td><td>35 ميجاباسكال SRC</td><td>16</td></tr>
+                            <tr><td>جدران الخزانات والمسبح</td><td>35 ميجاباسكال SRC</td><td>17</td></tr>
+                            <tr><td>أسقف الخزانات والبيارة</td><td>35 ميجاباسكال SRC</td><td>11</td></tr>
+                            <tr class="total"><td>الإجمالي</td><td></td><td>334</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="sample-table-wrap">
+                    <h3>جدول التجميعي: الحديد بالأقطار (طن)</h3>
+                    <table class="sample-table rebar-table">
+                        <thead><tr><th>العنصر</th><th>8مم</th><th>10مم</th><th>12مم</th><th>14مم</th><th>16مم</th><th>الإجمالي</th></tr></thead>
+                        <tbody>
+                            <tr><td>القواعد المسلحة</td><td>–</td><td>–</td><td>0.15</td><td>2.1</td><td>–</td><td>2.25</td></tr>
+                            <tr><td>رقاب الأعمدة</td><td>0.95</td><td>–</td><td>–</td><td>0.25</td><td>2</td><td>3.2</td></tr>
+                            <tr><td>الشدادات</td><td>0.55</td><td>–</td><td>–</td><td>–</td><td>2.4</td><td>2.95</td></tr>
+                            <tr><td>الميدات</td><td>0.75</td><td>–</td><td>–</td><td>0.95</td><td>0.75</td><td>2.45</td></tr>
+                            <tr><td>الأرضيات الخرسانية</td><td colspan="5">شبك 8مم مقاس 2×5م، 30 حبة</td><td>–</td></tr>
+                            <tr><td>أعمدة الأرضي</td><td>1.55</td><td>–</td><td>–</td><td>0.3</td><td>2.5</td><td>4.35</td></tr>
+                            <tr><td>سقف الأرضي</td><td>–</td><td>2.4</td><td>1</td><td>1.2</td><td>3.9</td><td>8.5</td></tr>
+                            <tr><td>أعمدة الأول</td><td>0.95</td><td>–</td><td>–</td><td>–</td><td>1.7</td><td>2.65</td></tr>
+                            <tr><td>سقف الأول</td><td>2</td><td>–</td><td>0.95</td><td>1</td><td>2.5</td><td>6.45</td></tr>
+                            <tr><td>أعمدة الملحق</td><td>0.65</td><td>–</td><td>–</td><td>–</td><td>1.35</td><td>2</td></tr>
+                            <tr><td>سقف الملحق</td><td>1.5</td><td>–</td><td>0.25</td><td>0.85</td><td>1.7</td><td>4.3</td></tr>
+                            <tr><td>الخزان</td><td>0.1</td><td>–</td><td>0.9</td><td>3.8</td><td>1.1</td><td>5.9</td></tr>
+                            <tr class="total"><td>إجمالي وزن الحديد</td><td colspan="5"></td><td>45</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p class="sample-footnote">كميات الحديد بدون نسبة هادر كما في الملف الأصلي. الملف الكامل يشمل جداول تفصيلية لكل عنصر: القواعد، الشدادات، رقاب الأعمدة، الميدات، الأرضيات، أعمدة وأسقف كل دور، والخزانات والمسبح والبيارة وجداول العزل.</p>
+        </section>
+
+        <section class="process fade-in" id="process">
+            <h2>إزاي بنشتغل؟</h2>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">١</div>
+                    <h3>ابعت تفاصيل مشروعك</h3>
+                    <p>لوحات أو وصف للمطلوب، ونتواصل معك لتوضيح أي نقطة قبل البدء.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">٢</div>
+                    <h3>نطاق وسعر متفق عليهم</h3>
+                    <p>قبل بدء الشغل، تعرف بالضبط التسليمات والتكلفة — متفق عليها كتابيًا.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">٣</div>
+                    <h3>تنفيذ وتسليم</h3>
+                    <p>ننفذ الشغل ونسلمك الملفات المتفق عليها كاملة، وتقدر تراجعها وتسأل عن أي بند.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================== ABOUT OWNER SECTION =================== -->
+        <section class="about-owner fade-in" id="about-owner">
+            <h2>نبذة عن المالك</h2>
+            <div class="about-owner-content">
+                <div class="about-owner-text">
+                    <h3>م. محمود صابر</h3>
+                    <p>القائد والرؤية خلف Builder Home. بخبرة تمتد لـ 15 عامًا، قمت ببناء مسيرة مهنية حافلة بالإنجازات في مجال الهندسة المدنية، داخل مصر وخارجها.</p>
+                    <p>تخصصت في إدارة وتطوير المكاتب الفنية، حيث أؤمن بأن الدقة في التخطيط والشفافية في التنفيذ هما حجر الزاوية لنجاح أي مشروع. أسعى دائمًا لتطبيق أحدث التقنيات والمعايير العالمية في كل مشروع نعمل عليه، لضمان تقديم قيمة حقيقية ومستدامة لعملائنا.</p>
+                    <p>قيادتي لـ Builder Home ليست مجرد وظيفة، بل هي التزام شخصي بتحقيق التميز في كل تفصيلة.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================== QUOTE CTA BAND =================== -->
+        <section class="cta-band fade-in" id="quote">
+            <h2>جاهز تطلب عرض سعر؟</h2>
+            <p>ابعت تفاصيل مشروعك على <a href="https://wa.me/201069609878" target="_blank" rel="noopener" class="inline-whatsapp">واتساب</a>، ونحدد لك النطاق والتكلفة كتابيًا قبل بدء أي شغل.</p>
+            <a href="https://wa.me/201069609878" target="_blank" rel="noopener" class="cta-button">اطلب عرض سعر</a>
+        </section>
+
+        <!-- =================== CONTACT SECTION =================== -->
+        <section class="contact fade-in" id="contact">
+            <h2>تواصل معنا</h2>
+            <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 30px;">نحن هنا لتحويل رؤيتك إلى واقع. أسرع طريق للتواصل: واتساب مباشر أو مكالمة هاتفية.</p>
+            
+            <div class="contact-form-container">
+                <div class="whatsapp-panel">
+                    <i class="fab fa-whatsapp whatsapp-panel-icon"></i>
+                    <h3>تواصل مباشر عبر واتساب</h3>
+                    <p class="whatsapp-panel-hint">عشان نسعّر صح، اذكر في رسالتك: نوع المشروع، المساحة، الموقع، اللوحات المتاحة، والمدة المطلوبة. مثال: «حصر كميات لفيلا ٣٠٠ متر في التجمع الخامس، اللوحات المعمارية متاحة، والتسليم خلال أسبوعين.»</p>
+                    <a href="https://wa.me/201069609878" target="_blank" rel="noopener" class="submit-btn whatsapp-cta">ابدأ المحادثة على واتساب</a>
+                    <p class="form-whatsapp-note">تفضّل مكالمة؟ <a href="tel:+201069609878" dir="ltr">+20 106 960 9878</a> — أو راسلنا على <a href="mailto:builderhomeegypt@gmail.com">builderhomeegypt@gmail.com</a></p>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+201069609878" dir="ltr">+20 106 960 9878</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="https://wa.me/201069609878" target="_blank" rel="noopener">واتساب مباشرة</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:builderhomeegypt@gmail.com">builderhomeegypt@gmail.com</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =================== FOOTER =================== -->
+    <footer>
+        <p>&copy; 2026 Builder Home. جميع الحقوق محفوظة. <a href="https://wa.me/201069609878" target="_blank" rel="noopener" style="color: var(--accent-color); text-decoration: none;">واتساب</a> · صُمم بـ <i class="fas fa-heart" style="color: var(--accent-color);"></i> بواسطة م. محمود صابر</p>
+    </footer>
+
+    <script>
+        // Fade-in animation on scroll
+        const faders = document.querySelectorAll('.fade-in');
+        if (!('IntersectionObserver' in window)) { faders.forEach(f => f.classList.add('visible')); }
+        const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+        faders.forEach(fader => appearOnScroll.observe(fader));
+
+        // Mobile nav toggle
+        const navToggle = document.querySelector('.site-nav-toggle');
+        const navLinks = document.querySelector('.site-nav-links');
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', () => {
+                const open = navLinks.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+            navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }));
+        }
+
+        // Nav active section highlight
+        const navAnchors = document.querySelectorAll('.site-nav-links a[href^="#"]');
+        const sectionFor = {};
+        navAnchors.forEach(a => { const t = document.querySelector(a.getAttribute('href')); if (t) sectionFor[a.getAttribute('href')] = a; });
+        const sections = Object.keys(sectionFor).map(id => document.querySelector(id)).filter(Boolean);
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navAnchors.forEach(a => a.classList.remove('active'));
+                    const link = sectionFor['#' + entry.target.id];
+                    if (link) link.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-40% 0px -55% 0px' });
+        sections.forEach(sec => navObserver.observe(sec));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
