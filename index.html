@@ -681,7 +681,94 @@
             *, *::before, *::after { animation: none !important; transition: none !important; }
             .fade-in { opacity: 1; transform: none; }
         }
-    </style>
+            /* --- Work sample section (proposed) --- */
+        .work-sample .sample-intro {
+            color: var(--text-muted);
+            max-width: 720px;
+            margin: -1.5rem auto 2rem;
+            text-align: center;
+            font-size: 1rem;
+        }
+        .sample-stats { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 36px; }
+        .sample-stat {
+            background: var(--secondary-color);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 12px;
+            padding: 16px 26px;
+            text-align: center;
+        }
+        .stat-num { display: block; font-family: var(--font-heading); color: var(--accent-color); font-size: 1.8rem; font-weight: 700; }
+        .stat-label { color: var(--text-muted); font-size: 0.85rem; }
+        .sample-visual {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            background: var(--secondary-color);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            padding: 28px 24px;
+            margin-bottom: 40px;
+        }
+        @media (min-width: 900px) { .sample-visual { grid-template-columns: 1fr 1fr; } }
+        .sample-chart h3 {
+            font-family: var(--font-heading);
+            color: var(--accent-color);
+            font-size: 1rem;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .bar-label { flex: 0 0 108px; color: var(--text-light); font-size: 0.85rem; text-align: right; }
+        .bar-track { flex: 1; background: rgba(255, 255, 255, 0.06); border-radius: 6px; height: 22px; overflow: hidden; }
+        .bar-fill { height: 100%; background: linear-gradient(90deg, rgba(212, 175, 55, 0.55), var(--accent-color)); border-radius: 6px; }
+        .bar-value { flex: 0 0 48px; color: var(--accent-color); font-weight: 700; font-size: 0.9rem; text-align: left; }
+        .sample-chart-note {
+            grid-column: 1 / -1;
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            text-align: center;
+            margin: 4px 0 0;
+        }
+        .sample-tables-title {
+            font-family: var(--font-heading);
+            color: var(--text-light);
+            font-size: 1.15rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sample-tables { display: grid; grid-template-columns: 1fr; gap: 28px; }
+        @media (min-width: 1024px) { .sample-tables { grid-template-columns: 1fr 1.2fr; } }
+        .sample-table-wrap {
+            overflow-x: auto;
+            background: var(--secondary-color);
+            border: 1px solid #2c2c2c;
+            border-radius: 14px;
+            padding: 20px 16px;
+        }
+        .sample-table-wrap h3 {
+            font-family: var(--font-heading);
+            color: var(--accent-color);
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .sample-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .rebar-table { min-width: 0; }
+        .sample-table th, .sample-table td { border: 1px solid #2c2c2c; padding: 7px 8px; text-align: center; color: var(--text-light); }
+        .sample-table thead th { background: rgba(212, 175, 55, 0.08); color: var(--accent-color); font-weight: 700; }
+        .sample-table tbody tr:nth-child(even) td { background: rgba(255, 255, 255, 0.025); }
+        .sample-table tr.total td { background: rgba(212, 175, 55, 0.12); font-weight: 700; color: var(--accent-color); }
+        .sample-footnote { color: var(--text-muted); font-size: 0.8rem; text-align: center; margin-top: 16px; }
+        @media (max-width: 768px) {
+            .rebar-table { min-width: 0; font-size: 0.68rem; }
+            .rebar-table th, .rebar-table td { padding: 4px 3px; }
+            .sample-table { font-size: 0.78rem; }
+            .sample-visual { padding: 20px 14px; }
+            .bar-label { flex-basis: 84px; font-size: 0.75rem; }
+            .bar-value { flex-basis: 40px; font-size: 0.8rem; }
+        }
+
+        </style>
 </head>
 <body>
 
@@ -962,6 +1049,82 @@
             <p class="deliverables-note">نطاق التسليمات ومدة التنفيذ يتم الاتفاق عليهما كتابيًا حسب طبيعة مشروعك، دون مفاجآت.</p>
         </section>
         <!-- =================== PROCESS SECTION (proposed, pending approval) =================== -->
+        <section class="work-sample fade-in" id="work-sample">
+            <h2>نموذج من شغلنا الفعلي</h2>
+            <p class="sample-intro">مقتطف من ملف حصر كميات فعلي لفيلا سكنية، بعد إخفاء بيانات العميل والموقع. الكميات خاصة بهذا المشروع وتُعرض لتوضيح أسلوب التسليم، لا كالتزام بكميات أو أسعار مشروعك.</p>
+            <div class="sample-stats">
+                <div class="sample-stat"><span class="stat-num">٣٣٤</span><span class="stat-label">م³ إجمالي الخرسانة</span></div>
+                <div class="sample-stat"><span class="stat-num">٤٥</span><span class="stat-label">طن إجمالي الحديد</span></div>
+                <div class="sample-stat"><span class="stat-num">١٥</span><span class="stat-label">جدولًا تفصيليًا في الملف الكامل</span></div>
+            </div>
+            <div class="sample-visual">
+                <div class="sample-chart">
+                    <h3>توزيع الخرسانة على عناصر المشروع (م³)</h3>
+                    <div class="bar-row"><span class="bar-label">الأسقف</span><div class="bar-track"><div class="bar-fill" style="width: 100%"></div></div><span class="bar-value">133</span></div>
+                    <div class="bar-row"><span class="bar-label">الأساسات والميدات</span><div class="bar-track"><div class="bar-fill" style="width: 84%"></div></div><span class="bar-value">112</span></div>
+                    <div class="bar-row"><span class="bar-label">الأعمدة</span><div class="bar-track"><div class="bar-fill" style="width: 34%"></div></div><span class="bar-value">45</span></div>
+                    <div class="bar-row"><span class="bar-label">الخزانات والمسبح</span><div class="bar-track"><div class="bar-fill" style="width: 33%"></div></div><span class="bar-value">44</span></div>
+                </div>
+                <div class="sample-chart">
+                    <h3>توزيع الحديد على عناصر المشروع (طن)</h3>
+                    <div class="bar-row"><span class="bar-label">الأسقف</span><div class="bar-track"><div class="bar-fill" style="width: 100%"></div></div><span class="bar-value">19.25</span></div>
+                    <div class="bar-row"><span class="bar-label">الأعمدة</span><div class="bar-track"><div class="bar-fill" style="width: 63%"></div></div><span class="bar-value">12.2</span></div>
+                    <div class="bar-row"><span class="bar-label">الأساسات والميدات</span><div class="bar-track"><div class="bar-fill" style="width: 40%"></div></div><span class="bar-value">7.65</span></div>
+                    <div class="bar-row"><span class="bar-label">الخزانات والمسبح</span><div class="bar-track"><div class="bar-fill" style="width: 31%"></div></div><span class="bar-value">5.9</span></div>
+                </div>
+                <p class="sample-chart-note">التجميع بالفئات محسوب من الجداول التفصيلية بالأسفل كما في الملف الأصلي.</p>
+            </div>
+            <h3 class="sample-tables-title">الجداول التفصيلية كما في الملف</h3>
+            <div class="sample-tables">
+                <div class="sample-table-wrap">
+                    <h3>جدول التجميعي: كميات الخرسانات</h3>
+                    <table class="sample-table">
+                        <thead><tr><th>العنصر</th><th>نوع الخرسانة</th><th>الكمية (م³)</th></tr></thead>
+                        <tbody>
+                            <tr><td>القواعد العادية</td><td>20 ميجاباسكال OPC</td><td>15</td></tr>
+                            <tr><td>القواعد المسلحة</td><td>30 ميجاباسكال SRC</td><td>33</td></tr>
+                            <tr><td>رقاب الأعمدة</td><td>35 ميجاباسكال SRC</td><td>8</td></tr>
+                            <tr><td>الشدادات</td><td>30 ميجاباسكال SRC</td><td>13</td></tr>
+                            <tr><td>الميدات</td><td>30 ميجاباسكال SRC</td><td>25</td></tr>
+                            <tr><td>الأرضيات الخرسانية</td><td>20 ميجاباسكال SRC</td><td>26</td></tr>
+                            <tr><td>أعمدة الأرضي</td><td>35 ميجاباسكال OPC</td><td>18</td></tr>
+                            <tr><td>سقف الأرضي</td><td>30 ميجاباسكال OPC</td><td>60</td></tr>
+                            <tr><td>أعمدة الأول</td><td>35 ميجاباسكال OPC</td><td>10</td></tr>
+                            <tr><td>سقف الأول</td><td>30 ميجاباسكال OPC</td><td>45</td></tr>
+                            <tr><td>أعمدة الملحق</td><td>35 ميجاباسكال OPC</td><td>9</td></tr>
+                            <tr><td>سقف الملحق</td><td>30 ميجاباسكال OPC</td><td>28</td></tr>
+                            <tr><td>أرضية الخزانات والمسبح</td><td>35 ميجاباسكال SRC</td><td>16</td></tr>
+                            <tr><td>جدران الخزانات والمسبح</td><td>35 ميجاباسكال SRC</td><td>17</td></tr>
+                            <tr><td>أسقف الخزانات والبيارة</td><td>35 ميجاباسكال SRC</td><td>11</td></tr>
+                            <tr class="total"><td>الإجمالي</td><td></td><td>334</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="sample-table-wrap">
+                    <h3>جدول التجميعي: الحديد بالأقطار (طن)</h3>
+                    <table class="sample-table rebar-table">
+                        <thead><tr><th>العنصر</th><th>8مم</th><th>10مم</th><th>12مم</th><th>14مم</th><th>16مم</th><th>الإجمالي</th></tr></thead>
+                        <tbody>
+                            <tr><td>القواعد المسلحة</td><td>–</td><td>–</td><td>0.15</td><td>2.1</td><td>–</td><td>2.25</td></tr>
+                            <tr><td>رقاب الأعمدة</td><td>0.95</td><td>–</td><td>–</td><td>0.25</td><td>2</td><td>3.2</td></tr>
+                            <tr><td>الشدادات</td><td>0.55</td><td>–</td><td>–</td><td>–</td><td>2.4</td><td>2.95</td></tr>
+                            <tr><td>الميدات</td><td>0.75</td><td>–</td><td>–</td><td>0.95</td><td>0.75</td><td>2.45</td></tr>
+                            <tr><td>الأرضيات الخرسانية</td><td colspan="5">شبك 8مم مقاس 2×5م، 30 حبة</td><td>–</td></tr>
+                            <tr><td>أعمدة الأرضي</td><td>1.55</td><td>–</td><td>–</td><td>0.3</td><td>2.5</td><td>4.35</td></tr>
+                            <tr><td>سقف الأرضي</td><td>–</td><td>2.4</td><td>1</td><td>1.2</td><td>3.9</td><td>8.5</td></tr>
+                            <tr><td>أعمدة الأول</td><td>0.95</td><td>–</td><td>–</td><td>–</td><td>1.7</td><td>2.65</td></tr>
+                            <tr><td>سقف الأول</td><td>2</td><td>–</td><td>0.95</td><td>1</td><td>2.5</td><td>6.45</td></tr>
+                            <tr><td>أعمدة الملحق</td><td>0.65</td><td>–</td><td>–</td><td>–</td><td>1.35</td><td>2</td></tr>
+                            <tr><td>سقف الملحق</td><td>1.5</td><td>–</td><td>0.25</td><td>0.85</td><td>1.7</td><td>4.3</td></tr>
+                            <tr><td>الخزان</td><td>0.1</td><td>–</td><td>0.9</td><td>3.8</td><td>1.1</td><td>5.9</td></tr>
+                            <tr class="total"><td>إجمالي وزن الحديد</td><td colspan="5"></td><td>45</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p class="sample-footnote">كميات الحديد بدون نسبة هادر كما في الملف الأصلي. الملف الكامل يشمل جداول تفصيلية لكل عنصر: القواعد، الشدادات، رقاب الأعمدة، الميدات، الأرضيات، أعمدة وأسقف كل دور، والخزانات والمسبح والبيارة وجداول العزل.</p>
+        </section>
+
         <section class="process fade-in" id="process">
             <h2>إزاي بنشتغل؟</h2>
             <div class="process-grid">
