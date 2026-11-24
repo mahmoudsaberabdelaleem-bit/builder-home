@@ -176,24 +176,6 @@
         .about-office-highlights li i { color: var(--accent-color); margin-left: 10px; }
 
         /* --- Projects Section --- */
-        .projects-filters { text-align: center; margin-bottom: 40px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-        .filter-btn {
-            background: var(--secondary-color);
-            color: var(--text-light);
-            border: 1px solid #333;
-            padding: 10px 25px;
-            margin: 5px;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: var(--font-body);
-            font-size: 1rem;
-        }
-        .filter-btn.active, .filter-btn:hover {
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            border-color: var(--accent-color);
-        }
 
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         
@@ -471,7 +453,6 @@
             .contact-form-container { padding: 20px; }
             .projects-grid { grid-template-columns: 1fr; gap: 20px; }
             .project-animation { height: 170px; }
-            .filter-btn { padding: 8px 18px; font-size: 0.9rem; }
             input, select, textarea { font-size: 16px; }
             .fade-in { transform: translateY(16px); }
         }
@@ -768,6 +749,66 @@
             .bar-value { flex-basis: 40px; font-size: 0.8rem; }
         }
 
+        
+        /* --- Experience domains (premium refresh) --- */
+        .projects-intro {
+            color: var(--text-muted);
+            max-width: 760px;
+            margin: -1.5rem auto 2.5rem;
+            text-align: center;
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+        .domains-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; }
+        .domain-card {
+            background: var(--secondary-color);
+            border: 1px solid #2c2c2c;
+            border-radius: 16px;
+            padding: 30px 24px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .domain-card:hover { transform: translateY(-6px); border-color: rgba(212, 175, 55, 0.45); }
+        .domain-icon {
+            width: 64px; height: 64px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+        .domain-card h3 { font-family: var(--font-heading); color: var(--accent-color); font-size: 1.15rem; margin-bottom: 10px; }
+        .domain-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; }
+
+        /* --- Mobile nav toggle --- */
+        .site-nav-toggle {
+            display: none;
+            background: none;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 8px;
+            padding: 8px 10px;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .site-nav-toggle span { display: block; width: 18px; height: 2px; background: var(--accent-color); border-radius: 2px; }
+        @media (max-width: 900px) {
+            .site-nav { flex-wrap: wrap; }
+            .site-nav-toggle { display: flex; }
+            .site-nav-links {
+                display: none;
+                flex-basis: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 4px;
+                padding-top: 10px;
+            }
+            .site-nav-links.open { display: flex; }
+            .site-nav-links a { text-align: center; padding: 10px; }
+        }
+
         </style>
 </head>
 <body>
@@ -783,6 +824,7 @@
     <!-- =================== SITE NAV (proposed) =================== -->
     <nav class="site-nav">
         <span class="site-nav-brand">Builder Home</span>
+        <button class="site-nav-toggle" aria-label="القائمة" aria-expanded="false"><span></span><span></span><span></span></button>
         <div class="site-nav-links">
             <a href="#home">الرئيسية</a>
             <a href="#projects">أعمالنا</a>
@@ -824,182 +866,32 @@
 
         <!-- =================== PROJECTS SECTION =================== -->
         <section class="projects fade-in" id="projects">
-            <h2>معرض أعمالنا</h2>
-            <div class="projects-filters">
-                <button class="filter-btn active" data-filter="all">الكل</button>
-                <button class="filter-btn" data-filter="design">تصميم</button>
-                <button class="filter-btn" data-filter="shop-drawing">شوب دروينج</button>
-                <button class="filter-btn" data-filter="qs">حصر كميات</button>
-            </div>
-            <div class="projects-grid">
-                <!-- Design Projects -->
-                <div class="project-card fade-in" data-category="design">
-                    <div class="project-animation">
-                        <div class="cube">
-                            <div class="cube-face"></div>
-                            <div class="cube-face"></div>
-                            <div class="cube-face"></div>
-                            <div class="cube-face"></div>
-                            <div class="cube-face"></div>
-                            <div class="cube-face"></div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-type">تصميم معماري وإنشائي</span>
-                        <h3>فيلا النخبة</h3>
-                        <p>تصميم فيلا فاخرة على مساحة 800م في القاهرة الجديدة، تجمع بين الحداثة والخصوصية مع حديقة ومنتجع سباحة خاص.</p>
-                        <div class="project-location"><i class="fas fa-map-marker-alt"></i> القاهرة الجديدة، مصر</div>
-                    </div>
+            <h2>مجالات خبرتنا</h2>
+            <p class="projects-intro">شارك م. محمود صابر في مشروعات مدارس وجامعات ومستشفيات وأبراج سكنية وفيلات ومحطات معالجة وخزانات، داخل مصر وخارجها، في أعمال التصميم الإنشائي والمكتب الفني وحصر الكميات.</p>
+            <div class="domains-grid">
+                <div class="domain-card">
+                    <div class="domain-icon"><i class="fas fa-home"></i></div>
+                    <h3>فيلات وأبراج سكنية</h3>
+                    <p>تصميم إنشائي، لوحات تنفيذية للحديد والخرسانة، وحصر كميات للمباني السكنية بمختلف مساحاتها.</p>
                 </div>
-                <div class="project-card fade-in" data-category="design">
-                    <div class="project-animation">
-                        <div class="cube">
-                            <div class="cube-face"></div>
-                            <div class="cube-face"></div>
-                            <div class="cube-face"></div>
-                            <div class="cube-face"></div>
-                            <div class="cube-face"></div>
-                            <div class="cube-face"></div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-type">تصميم إنشائي</span>
-                        <h3>برج الأعمال التجاري</h3>
-                        <p>تصميم إنشائي كامل لبرج إداري مكون من 15 طابقًا في القاهرة الجديدة، مع نظام هيكلي متقدم لمقاومة الزلازل.</p>
-                        <div class="project-location"><i class="fas fa-map-marker-alt"></i> القاهرة الجديدة، مصر</div>
-                    </div>
+                <div class="domain-card">
+                    <div class="domain-icon"><i class="fas fa-school"></i></div>
+                    <h3>مدارس وجامعات</h3>
+                    <p>أعمال مكتب فني وتصميم لمنشآت تعليمية بمتطلباتها الإنشائية والوظيفية.</p>
                 </div>
-
-                <!-- Shop Drawing Projects -->
-                <div class="project-card fade-in" data-category="shop-drawing">
-                    <div class="project-animation"></div>
-                    <div class="project-info">
-                        <span class="project-type">Shop Drawings</span>
-                        <h3>مجمع الدانة السكني</h3>
-                        <p>إعداد أكثر من 500 لوحة تنفيذية لمجمع سكني يضم 4 أبراق، شاملة التشطيبات والتمديدات.</p>
-                        <div class="project-location"><i class="fas fa-map-marker-alt"></i> جدة، السعودية</div>
-                    </div>
+                <div class="domain-card">
+                    <div class="domain-icon"><i class="fas fa-hospital"></i></div>
+                    <h3>مستشفيات</h3>
+                    <p>منشآت صحية بأنظمة إنشائية تراعي المتطلبات التخصصية والأحمال الخاصة.</p>
                 </div>
-                <div class="project-card fade-in" data-category="shop-drawing">
-                    <div class="project-animation"></div>
-                    <div class="project-info">
-                        <span class="project-type">Shop Drawings</span>
-                        <h3>مول النخبة التجاري</h3>
-                        <p>رسومات تنفيذية للواجهات الزجاجية والفولاذية والأسقف المعلقة لمول تجاري مسطحته 8000م.</p>
-                        <div class="project-location"><i class="fas fa-map-marker-alt"></i> الدمام، السعودية</div>
-                    </div>
-                </div>
-                <div class="project-card fade-in" data-category="shop-drawing">
-                    <div class="project-animation"></div>
-                    <div class="project-info">
-                        <span class="project-type">Shop Drawings</span>
-                        <h3>مصنع الأسمدة</h3>
-                        <p>رسومات تنفيذية تفصيلية لهياكل ومعدات مصنع أسمدة، مع التركيز على سلامة التركيبات الصناعية.</p>
-                        <div class="project-location"><i class="fas fa-map-marker-alt"></i> العين السخنة، مصر</div>
-                    </div>
-                </div>
-                <div class="project-card fade-in" data-category="shop-drawing">
-                    <div class="project-animation"></div>
-                    <div class="project-info">
-                        <span class="project-type">Shop Drawings</span>
-                        <h3>مركز تجاري متعدد الأغراض</h3>
-                        <p>إعداد رسومات تنفيذية كاملة لمركز تجاري يضم أنشطة تجارية وترفيهية ومكتبية.</p>
-                        <div class="project-location"><i class="fas fa-map-marker-alt"></i> الخبر، السعودية</div>
-                    </div>
-                </div>
-                <div class="project-card fade-in" data-category="shop-drawing">
-                    <div class="project-animation"></div>
-                    <div class="project-info">
-                        <span class="project-type">Shop Drawings</span>
-                        <h3>واجهات فيلات الساحل</h3>
-                        <p>تصميم وتفصيل رسومات تنفيذية لواجهات 15 فيلا على الساحل الشمالي بأسلوب معماري موحد.</p>
-                        <div class="project-location"><i class="fas fa-map-marker-alt"></i> الساحل الشمالي، مصر</div>
-                    </div>
-                </div>
-                <div class="project-card fade-in" data-category="shop-drawing">
-                    <div class="project-animation"></div>
-                    <div class="project-info">
-                        <span class="project-type">Shop Drawings</span>
-                        <h3>مدرسة دولية متكاملة</h3>
-                        <p>رسومات تنفيذية لمدرسة تضم فصول دراسية، ملاعب، مسرح، ومختبرات بالمعايير الدولية.</p>
-                        <div class="project-location"><i class="fas fa-map-marker-alt"></i> الرياض، السعودية</div>
-                    </div>
-                </div>
-
-                <!-- Quantity Surveying Projects -->
-                <div class="project-card fade-in" data-category="qs">
-                    <div class="project-animation">
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-type">حصر كميات</span>
-                        <h3>مشروع فيلات الرياض</h3>
-                        <p>إعداد قوائم كميات وتفصيل أسعار لـ 25 فيلا فاخرة، شاملة كافة أعمال البناء والتشطيبات والمناظر الطبيعية.</p>
-                        <div class="project-location"><i class="fas fa-map-marker-alt"></i> الرياض، السعودية</div>
-                    </div>
-                </div>
-                <div class="project-card fade-in" data-category="qs">
-                    <div class="project-animation">
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-type">حصر كميات</span>
-                        <h3>مستشفى الأمل التخصصي</h3>
-                        <p>حصر دقيق لجميع بنود الأعمال لمشروع مستشفى بسعة 200 سرير، مع التركيز على الأعمال التخصصية.</p>
-                        <div class="project-location"><i class="fas fa-map-marker-alt"></i> 6 أكتوبر، مصر</div>
-                    </div>
-                </div>
-                <div class="project-card fade-in" data-category="qs">
-                    <div class="project-animation">
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-type">حصر كميات</span>
-                        <h3>تطوير الطريق الدائري</h3>
-                        <p>إعداد قوائم كميات لمشروع تطوير طريق رئيسي، شاملة أعمال الحفر، الأساسات، والأسفلت.</p>
-                        <div class="project-location"><i class="fas fa-map-marker-alt"></i> القاهرة، مصر</div>
-                    </div>
-                </div>
-                <div class="project-card fade-in" data-category="qs">
-                    <div class="project-animation">
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-type">حصر كميات</span>
-                        <h3>مجمع المصانع العسكرية</h3>
-                        <p>حصر كميات لمشروع ضخم يتضمن إنشاء 10 مصانع متخصصة ومنشآت داعمة على مساحة 50 فدان.</p>
-                        <div class="project-location"><i class="fas fa-map-marker-alt"></i> منطقة قناة السويس، مصر</div>
-                    </div>
-                </div>
-                <div class="project-card fade-in" data-category="qs">
-                    <div class="project-animation">
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-type">حصر كميات</span>
-                        <h3>مشروع الأبراج السكنية</h3>
-                        <p>إعداد قوائم كميات وتفصيل أسعار لمشروع مكون من 5 أبراج سكنية وخدماتهم.</p>
-                        <div class="project-location"><i class="fas fa-map-marker-alt"></i> جدة، السعودية</div>
-                    </div>
+                <div class="domain-card">
+                    <div class="domain-icon"><i class="fas fa-water"></i></div>
+                    <h3>محطات معالجة وخزانات</h3>
+                    <p>عناصر خرسانية مسلحة لمنشآت المياه والصرف، بما فيها الخزانات بجداول العزل الخاصة بها.</p>
                 </div>
             </div>
             <p class="more-projects-hint">
-                هذه نماذج من أعمالنا، ولدينا العديد من المشاريع الأخرى في مختلف التخصصات. <a href="#contact">تواصل معنا لمعرفة المزيد.</a>
+                نموذج فعلي من جداول حصر الكميات تجده في قسم «نموذج من شغلنا الفعلي» بالأسفل، ولأي نطاق مشابه لمشروعك <a href="#contact">تواصل معنا.</a>
             </p>
         </section>
 
@@ -1225,7 +1117,7 @@
 
     <!-- =================== FOOTER =================== -->
     <footer>
-        <p>&copy; 2024 Builder Home. جميع الحقوق محفوظة. صُمم بـ <i class="fas fa-heart" style="color: var(--accent-color);"></i> بواسطة م. محمود صابر</p>
+        <p>&copy; 2026 Builder Home. جميع الحقوق محفوظة. <a href="https://wa.me/201069609878" target="_blank" rel="noopener" style="color: var(--accent-color); text-decoration: none;">واتساب</a> · صُمم بـ <i class="fas fa-heart" style="color: var(--accent-color);"></i> بواسطة م. محمود صابر</p>
     </footer>
 
     <script>
@@ -1242,26 +1134,19 @@
         }, appearOptions);
         faders.forEach(fader => appearOnScroll.observe(fader));
 
-        // Projects Filtering
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                const filter = button.getAttribute('data-filter');
-                projectCards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.style.display = 'block';
-                        card.classList.remove('visible');
-                        setTimeout(() => card.classList.add('visible'), 10);
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
+        // Mobile nav toggle
+        const navToggle = document.querySelector('.site-nav-toggle');
+        const navLinks = document.querySelector('.site-nav-links');
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', () => {
+                const open = navLinks.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
             });
-        });
+            navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }));
+        }
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
