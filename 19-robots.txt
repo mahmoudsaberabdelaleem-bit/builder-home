@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mahmoudsaberabdelaleem-bit.github.io/builder-home/sitemap.xml
