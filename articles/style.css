@@ -51,3 +51,31 @@ th { background: var(--surface); color: var(--accent); }
 footer { text-align: center; padding: 30px 20px; border-top: 1px solid #2a2a2a; color: var(--muted); font-size: .9rem; }
 .footer-links { margin-top: 8px; }
 @media (max-width: 640px) { h1 { font-size: 1.6rem; } .site-nav-links { gap: 12px; } }
+
+/* ===== Professional polish layer (2026-11-26) ===== */
+.site-nav{background:rgba(10,10,10,.82)!important;-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent!important;border-image:linear-gradient(90deg,transparent,rgba(212,175,55,.55),transparent) 1;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+.site-nav-brand{display:inline-flex;align-items:center;gap:12px;letter-spacing:.02em;text-decoration:none}
+.site-nav-brand::after{content:"م. محمود صابر";font-family:'Cairo',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:0;color:#d4af37;opacity:.92;padding-inline-start:12px;border-inline-start:1px solid rgba(212,175,55,.5);line-height:1.2;white-space:nowrap}
+.site-nav-links a{transition:color .2s}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #d4af37;outline-offset:3px;border-radius:6px}
+@media (max-width:420px){.site-nav-brand{gap:8px}.site-nav-brand::after{font-size:.7rem;padding-inline-start:8px}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+body{background:radial-gradient(900px 380px at 50% -120px,rgba(212,175,55,.09),transparent 70%),#0a0a0a;background-attachment:scroll}
+.article-wrap{padding-top:38px}
+h1{letter-spacing:-.005em;font-size:2.15rem}
+.art-header{padding-bottom:20px;border-bottom:1px solid #222;margin-bottom:30px}
+.art-meta{display:flex;flex-wrap:wrap;gap:6px}
+.art-intro{background:linear-gradient(135deg,#1e1e1e,#161616);border:1px solid #2a2a2a;border-right:3px solid #d4af37;box-shadow:0 8px 24px rgba(0,0,0,.35);border-radius:10px}
+h2{border-bottom:none;position:relative;padding-bottom:10px;display:block}
+h2::after{content:"";position:absolute;right:0;bottom:0;width:48px;height:3px;border-radius:3px;background:linear-gradient(90deg,#d4af37,#f0d77a)}
+.card h2::after,.related h2::after{display:none}
+.card{border-radius:14px;background:linear-gradient(160deg,#1f1f1f,#171717);transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.45)}
+.key-note{border-radius:10px}
+.art-cta,.art-outro{border:1px solid #2a2a2a;background:linear-gradient(160deg,#1f1f1f,#171717)}
+.cta-button{background:linear-gradient(135deg,#e2c14f,#c89f2a);box-shadow:0 6px 18px rgba(212,175,55,.25);transition:transform .2s,box-shadow .2s}
+.cta-button:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(212,175,55,.35);opacity:1}
+table{border-radius:10px;overflow:hidden}
+tbody tr:nth-child(even) td{background:rgba(255,255,255,.025)}
+th{background:#1a1a1a}
+footer{background:#080808}
