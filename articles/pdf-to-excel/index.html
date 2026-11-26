@@ -1,1 +1,296 @@
-index.html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تحويل PDF إلى Excel أونلاين مجانًا: جداول المقايسات والمستخلصات | Builder Home</title>
+  <meta name="description" content="حوّل جداول PDF (جدول كميات، مستخلص) إلى Excel (xlsx) داخل المتصفح بدون رفع الملف. أرقام فعلية وصفحة لكل جدول، مع توضيح حدود الأداة.">
+  <link rel="canonical" href="https://mahmoudsaberabdelaleem-bit.github.io/builder-home/articles/pdf-to-excel/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="تحويل PDF إلى Excel أونلاين مجانًا: جداول المقايسات والمستخلصات | Builder Home">
+  <meta property="og:description" content="حوّل جداول PDF (جدول كميات، مستخلص) إلى Excel (xlsx) داخل المتصفح بدون رفع الملف. أرقام فعلية وصفحة لكل جدول، مع توضيح حدود الأداة.">
+  <meta property="og:url" content="https://mahmoudsaberabdelaleem-bit.github.io/builder-home/articles/pdf-to-excel/">
+  <meta property="og:locale" content="ar_AR">
+  <meta property="og:site_name" content="Builder Home">
+  <meta name="twitter:card" content="summary">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <script src="https://cdn.counter.dev/script.js" data-id="e8efc146-5f8a-46aa-b41b-715651e75c03" data-utcoffset="2"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "تحويل PDF إلى Excel", "url": "https://mahmoudsaberabdelaleem-bit.github.io/builder-home/articles/pdf-to-excel/", "inLanguage": "ar", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "حوّل جداول PDF (جدول كميات، مستخلص) إلى Excel (xlsx) داخل المتصفح بدون رفع الملف. أرقام فعلية وصفحة لكل جدول، مع توضيح حدود الأداة.", "publisher": {"@type": "Organization", "name": "Builder Home", "url": "https://mahmoudsaberabdelaleem-bit.github.io/builder-home/"}}</script>
+  <style>
+    .calc-box{background:var(--surface);border:1px solid #2a2a2a;border-radius:12px;padding:20px;margin:18px 0}
+    .calc-box h2{margin-top:0}
+    .calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+    .calc-grid label{display:block;font-size:.9rem;color:var(--muted)}
+    .calc-grid input,.calc-grid select{width:100%;margin-top:4px;padding:8px 10px;background:#0a0a0a;color:var(--text);border:1px solid #444;border-radius:8px;font-family:inherit;font-size:1rem}
+    .calc-grid input:focus,.calc-grid select:focus{outline:none;border-color:var(--accent)}
+    .calc-result{margin-top:16px;padding:14px;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.35);border-radius:8px}
+    .calc-result .big{font-size:1.3rem;font-weight:900;color:var(--accent)}
+    .calc-formula{font-size:.85rem;color:var(--muted);margin-top:8px;direction:rtl}
+    .calc-btn{margin-top:14px;background:var(--accent);color:#0a0a0a;font-family:inherit;font-weight:700;border:none;border-radius:24px;padding:8px 26px;cursor:pointer;font-size:1rem}
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="site-nav-brand" href="../../">Builder Home</a>
+    <div class="site-nav-links">
+      <a href="../../">الرئيسية</a>
+      <a href="../">المقالات</a>
+      <a href="../tools/">الحاسبات</a>
+      <a href="../about/">عن الموقع</a>
+      <a href="../contact/" class="site-nav-cta">تواصل</a>
+    </div>
+  </nav>
+  <main class="article-wrap">
+    <article>
+      <header class="art-header">
+        <span class="art-keyword">أدوات PDF</span>
+        <h1>تحويل PDF إلى Excel</h1>
+      </header>
+      <p class="art-intro">استخرج الجداول من ملف PDF فيه نص (مقايسة، مستخلص) في ملف Excel، من غير ما الملف يخرج من جهازك.</p>
+      <section class="calc-box" id="conv">
+        <h2>تحويل PDF إلى Excel (.xlsx)</h2>
+        <p>اختار ملف PDF من جهازك. التحويل بيتم كله جوه المتصفح بتاعك، والملف مش بيتبعت لأي سيرفر.</p>
+        <label class="calc-grid" style="display:block"><input id="file" type="file" accept="application/pdf,.pdf"></label>
+        <button class="calc-btn" type="button" id="go">حوّل الملف</button>
+        <div class="calc-result" id="out" aria-live="polite">لسه ما اخترتش ملف.</div>
+        <p><a id="dl" class="calc-btn" style="display:none;text-decoration:none" href="#">تحميل الملف الناتج</a></p>
+      </section>
+      <section class="art-section">
+        <h2>قبل ما تستخدمها: حدود الأداة بصراحة</h2>
+        <ul>
+          <li>تشتغل على ملفات PDF اللي فيها نص حقيقي (مصدّرة من Word أو Excel أو برنامج مقايسات). لو الملف صورة ممسوحة ضوئيًا (سكانر)، مفيش نص يتحول والأداة هتقولك كده. التعرف على النص من الصور (OCR) مش متاح حاليًا.</li>
+          <li>الأداة بتدور على الجداول المنتظمة في الملف (جدول مقايسة مثلًا) وتحط كل جدول في صفحة Excel مستقلة والأرقام بتتحول لأرقام فعلية. لو الملف مفيهوش جداول واضحة، بيتحط النص كله في عمود واحد.</li>
+          <li>الحروف العربية والأرقام المختلطة مع الإنجليزي ممكن ترتيبها يتلخبط في بعض الجمل، خصوصًا الأرقام والرموز زي / و + جوه الجملة العربية. راجع الناتج قبل الاعتماد عليه.</li>
+          <li>بعض ملفات PDF بتحفظ بعض الحروف العربية بشكل غلط داخلها (زي «لا» و«أ» المتصلة)، وده بيطلع في أي أداة استخراج. لو ده حصل غالبًا الملف الأصلي هو السبب.</li>
+          <li>الصور والرسومات والتنسيقات المعقدة (أعمدة متعددة، خلفيات، ختم) مش بتتنقل. الأداة بتنقل النص والجداول البسيطة فقط.</li>
+          <li>الملفات الكبيرة جدًا ممكن تبطئ المتصفح لأن التحويل على جهازك.</li>
+        </ul>
+        <div class="key-note">الأداة مجانية وتقريبية. راجع الناتج دايمًا قبل استخدامه في مستخلص أو مقايسة أو عقد.</div>
+        <h2>خصوصية ملفاتك</h2>
+        <p>الملف بيتقرأ داخل صفحتك فقط ومش بيتحمّل على أي سيرفر. الصفحة بتحمّل مكتبات التحويل من شبكة توصيل عامة (jsDelivr)، لكن محتوى ملفك مش بيروح لها.</p>
+        <p>تحويل أنواع أخرى: <a href="../pdf-to-word/">PDF إلى Word</a> · <a href="../tools/">كل الأدوات</a> · <a href="../boq-types/">أنواع المقايسات</a></p>
+      </section>
+      <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+      <section class="art-section">
+        <h2>المعادلات والافتراضات</h2>
+        <ul>
+          <li>القراءة بمكتبة pdf.js والتوليد بمكتبة SheetJS، كلاهما داخل المتصفح.</li>
+          <li>الجدول يتحدد من أسطر فيها 3 خلايا أو أكتر متراصة تحت بعض. الأعمدة تتحدد من تداخل مواقع الخلايا.</li>
+          <li>الأرقام زي 1,250.5 بتتحول لرقم فعلي في Excel. القيم زي 0012 أو الأكواد بتفضل نص.</li>
+        </ul>
+        <div class="key-note">النتائج تقديرية للحصر الأولي والتسعير فقط، ولا تغني عن الحصر التفصيلي من اللوحات ولا عن حساب المهندس المسؤول. راجع مواصفات المشروع وعقده، والكود المصري لتصميم وتنفيذ المنشآت الخرسانية (ECP 203) عند التصميم.</div>
+        <p><a href="../tools/">كل الأدوات</a></p>
+      </section>
+      <div class="art-cta">
+        <p>محتاج حصر كميات أو مقايسة لمشروعك؟</p>
+        <a class="cta-button" href="../contact/">تواصل معنا</a>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <p>© Builder Home</p>
+    <p class="footer-links"><a href="../about/">عن الموقع</a> · <a href="../privacy/">سياسة الخصوصية</a> · <a href="../contact/">تواصل</a></p>
+  </footer>
+<script>
+(function(root){
+  var AR=/[\u0600-\u06FF\u0750-\u077F\uFB50-\uFDFF\uFE70-\uFEFF]/;
+  var ADIG={'٠':'0','١':'1','٢':'2','٣':'3','٤':'4','٥':'5','٦':'6','٧':'7','٨':'8','٩':'9','٫':'.','٬':','};
+  function clean(s){return s.normalize('NFKC').replace(/[٠-٩٫٬]/g,function(c){return ADIG[c];}).replace(/\u200e|\u200f/g,'');}
+  // items: [{str,x,y,w,h,dir}] for one page. Returns {lines:[{y,h,rtl,cells:[{text,x0,x1}],text}],width}
+  function buildLines(items){
+    var its=items.filter(function(i){return i.str!==''&&i.w>=0;});
+    if(!its.length)return {lines:[]};
+    var hs=its.map(function(i){return i.h;}).sort(function(a,b){return a-b;}), med=hs[Math.floor(hs.length/2)]||10;
+    its.sort(function(a,b){return b.y-a.y||a.x-b.x;});
+    var rows=[];
+    its.forEach(function(it){
+      var r=rows[rows.length-1];
+      if(r&&Math.abs(r.y-it.y)<=med*0.5){r.items.push(it);}else rows.push({y:it.y,items:[it]});
+    });
+    var lines=rows.map(function(r){
+      r.items.sort(function(a,b){return a.x-b.x;});
+      var arCount=0,total=0;
+      r.items.forEach(function(i){var n=i.str.replace(/\s/g,'').length;total+=n;if(AR.test(i.str))arCount+=n;});
+      var rtl=total>0&&arCount/total>0.3;
+      // cells: split on gaps
+      var cells=[],cur=null,avg=med*0.5;
+      r.items.forEach(function(it){
+        if(/^\s+$/.test(it.str)&&it.w>med*0.8){cur=null;return;}
+        var gap=cur?it.x-cur.x1:0;
+        if(cur&&gap<=Math.max(med*0.45,3)){cur.items.push(it);cur.x1=Math.max(cur.x1,it.x+it.w);}
+        else{cur={items:[it],x0:it.x,x1:it.x+it.w};cells.push(cur);}
+      });
+      cells.forEach(function(c){c.text=clean(orderItems(c.items,rtl)).replace(/\s+/g,' ').trim();});
+      cells=cells.filter(function(c){return c.text!=='';});
+      var lineText=(rtl?cells.slice().reverse():cells).map(function(c){return c.text;}).join(' ');
+      return {y:r.y,h:Math.max.apply(null,r.items.map(function(i){return i.h;})),rtl:rtl,cells:cells,text:lineText,x0:Math.min.apply(null,cells.map(function(c){return c.x0;})),x1:Math.max.apply(null,cells.map(function(c){return c.x1;}))};
+    }).filter(function(l){return l.cells.length;});
+    return {lines:lines,med:med};
+  }
+  // order the items of a cell into logical order
+  function orderItems(items,rtl){
+    if(!rtl)return items.map(function(i){return i.str;}).join('');
+    // segment by direction; whitespace takes direction of neighbours
+    var dirs=items.map(function(i){return /^\s*$/.test(i.str)?null:(AR.test(i.str)?'r':'l');});
+    for(var k=0;k<items.length;k++){if(dirs[k]===null){var p=k-1;while(p>=0&&dirs[p]===null)p--;var n=k+1;while(n<items.length&&dirs[n]===null)n++;var dp=p>=0?dirs[p]:null,dn=n<items.length?dirs[n]:null;dirs[k]=(dp==='r'&&dn==='r')?'r':(dp==='l'&&dn==='l'?'l':'r');}}
+    var segs=[],cur=null;
+    items.forEach(function(it,k){if(cur&&cur.d===dirs[k])cur.items.push(it);else{cur={d:dirs[k],items:[it]};segs.push(cur);}});
+    var out=segs.reverse().map(function(s){
+      var arr=s.d==='r'?s.items.slice().reverse():s.items;
+      return arr.map(function(i){return i.str;}).join('');
+    });
+    var res=out[0]||'';
+    for(var q=1;q<out.length;q++){
+      var a=res.slice(-1),b=out[q].charAt(0);
+      if(/[^\s\p{P}]/u.test(a)&&/[^\s\p{P}]/u.test(b)&&segs[segs.length-q].d!==segs[segs.length-q-1].d)res+=' ';
+      res+=out[q];
+    }
+    return res;
+  }
+  // detect tables: consecutive lines with >=3 cells (>=2 when header-like)
+  function findBlocks(lines){
+    var blocks=[],cur=null;
+    lines.forEach(function(l){
+      var isRow=l.cells.length>=3;
+      if(isRow){ if(cur&&cur.type==='table')cur.lines.push(l); else{cur={type:'table',lines:[l]};blocks.push(cur);} }
+      else{ if(cur&&cur.type==='text')cur.lines.push(l); else{cur={type:'text',lines:[l]};blocks.push(cur);} }
+    });
+    // a table needs >=2 rows, else treat as text
+    blocks.forEach(function(b){if(b.type==='table'&&b.lines.length<2)b.type='text';});
+    // merge adjacent text blocks
+    var out=[];blocks.forEach(function(b){var p=out[out.length-1];if(p&&p.type==='text'&&b.type==='text')p.lines=p.lines.concat(b.lines);else out.push(b);});
+    out.forEach(function(b){if(b.type==='table')assignColumns(b);});
+    return out;
+  }
+  function assignColumns(b){
+    var ivs=[];b.lines.forEach(function(l){l.cells.forEach(function(c){ivs.push([c.x0,c.x1]);});});
+    ivs.sort(function(a,c){return a[0]-c[0];});
+    var cols=[];ivs.forEach(function(iv){var c=cols[cols.length-1];if(c&&iv[0]<=c[1]+1){c[1]=Math.max(c[1],iv[1]);}else cols.push([iv[0],iv[1]]);});
+    var rtl=b.lines.filter(function(l){return l.rtl;}).length>b.lines.length/2;
+    b.rtl=rtl; b.ncols=cols.length;
+    b.rows=b.lines.map(function(l){
+      var row=new Array(cols.length).fill('');
+      l.cells.forEach(function(c){
+        var mid=(c.x0+c.x1)/2,idx=0;
+        for(var k=0;k<cols.length;k++){if(mid>=cols[k][0]-1&&mid<=cols[k][1]+1){idx=k;break;}}
+        row[idx]=row[idx]?row[idx]+' '+c.text:c.text;
+      });
+      if(rtl)row.reverse();
+      return row;
+    });
+  }
+  function paragraphs(lines,pageW){
+    var maxW=Math.max.apply(null,lines.map(function(l){return l.x1-l.x0;}))||1,out=[],cur=null,prev=null;
+    lines.forEach(function(l){
+      var newPara=!cur||(prev&&(Math.abs(prev.y-l.y)>l.h*1.6||(prev.x1-prev.x0)<maxW*0.6||prev.rtl!==l.rtl));
+      if(newPara){cur={text:l.text,rtl:l.rtl};out.push(cur);}
+      else cur.text+=' '+l.text;
+      prev=l;
+    });
+    return out;
+  }
+  function parseNum(s){var t=s.replace(/,/g,'');if(/^-?\d+(\.\d+)?$/.test(t)&&!/^0\d/.test(t))return parseFloat(t);return s;}
+  function convert(pagesItems){
+    var res=[];
+    pagesItems.forEach(function(items,pi){
+      var L=buildLines(items); if(!L.lines.length){res.push({page:pi+1,blocks:[]});return;}
+      var bl=findBlocks(L.lines).map(function(b){
+        if(b.type==='table')return {type:'table',rtl:b.rtl,rows:b.rows};
+        return {type:'text',paras:paragraphs(b.lines)};
+      });
+      res.push({page:pi+1,blocks:bl});
+    });
+    return res;
+  }
+  function stats(doc){var t=0,p=0,c=0;doc.forEach(function(pg){pg.blocks.forEach(function(b){if(b.type==='table'){t++;c+=b.rows.length;}else p+=b.paras.length;});});return {tables:t,rows:c,paragraphs:p};}
+  function toXlsx(doc,XLSX){
+    var wb=XLSX.utils.book_new(),n=0,rtlAny=false;
+    doc.forEach(function(pg){pg.blocks.forEach(function(b){
+      if(b.type!=='table')return; n++; if(b.rtl)rtlAny=true;
+      var aoa=b.rows.map(function(r){return r.map(parseNum);});
+      var ws=XLSX.utils.aoa_to_sheet(aoa);
+      var w=[];b.rows.forEach(function(r){r.forEach(function(c,i){w[i]=Math.max(w[i]||8,Math.min(String(c).length+2,45));});});
+      ws['!cols']=w.map(function(x){return {wch:x};});
+      XLSX.utils.book_append_sheet(wb,ws,('Table '+n+' p'+pg.page).slice(0,31));
+    });});
+    if(!n){
+      var aoa=[];doc.forEach(function(pg){pg.blocks.forEach(function(b){b.paras&&b.paras.forEach(function(p){aoa.push([p.text]);});});});
+      if(!aoa.length)return null;
+      var ws=XLSX.utils.aoa_to_sheet(aoa);ws['!cols']=[{wch:100}];XLSX.utils.book_append_sheet(wb,ws,'Text');
+    }
+    if(rtlAny)wb.Workbook={Views:[{RTL:true}]};
+    return wb;
+  }
+  function toDocx(doc,D){
+    var children=[],first=true;
+    doc.forEach(function(pg){
+      pg.blocks.forEach(function(b){
+        if(b.type==='table'){
+          var mx=[];b.rows.forEach(function(r){r.forEach(function(c,i){mx[i]=Math.max(mx[i]||6,Math.min(String(c).length,40));});});
+          var sum=mx.reduce(function(a,c){return a+c;},0),cw=mx.map(function(m){return Math.round(9000*m/sum);});
+          var rows=b.rows.map(function(r,ri){return new D.TableRow({children:r.map(function(c,ci){
+            return new D.TableCell({width:{size:cw[ci],type:D.WidthType.DXA},children:[new D.Paragraph({bidirectional:!!b.rtl,children:[new D.TextRun({text:c,rightToLeft:!!b.rtl&&/[\u0600-\u06FF]/.test(c),bold:ri===0})]})]});
+          })});});
+          children.push(new D.Table({rows:rows,visuallyRightToLeft:!!b.rtl,columnWidths:cw,width:{size:9000,type:D.WidthType.DXA}}));
+          children.push(new D.Paragraph({text:''}));
+        }else{
+          b.paras.forEach(function(p){children.push(new D.Paragraph({bidirectional:p.rtl,alignment:D.AlignmentType.START,spacing:{after:120},children:[new D.TextRun({text:p.text,rightToLeft:p.rtl,font:p.rtl?'Arial':undefined})]}));});
+        }
+      });
+    });
+    if(!children.length)return null;
+    return new D.Document({sections:[{children:children}]});
+  }
+  root.PdfCore={convert:convert,stats:stats,toXlsx:toXlsx,toDocx:toDocx,buildLines:buildLines,findBlocks:findBlocks,paragraphs:paragraphs,parseNum:parseNum,clean:clean};
+  if(typeof module!=='undefined')module.exports=root.PdfCore;
+})(typeof window!=='undefined'?window:globalThis);
+
+(function(){
+  var C=window.PdfCore,KIND="excel";
+  function $(i){return document.getElementById(i);}
+  var out=$('out'),dl=$('dl'),url=null;
+  pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+  $('go').onclick=async function(){
+    var f=$('file').files[0];
+    dl.style.display='none';
+    if(!f){out.textContent='اختار ملف PDF الأول.';return;}
+    if(!/\.pdf$/i.test(f.name)&&f.type!=='application/pdf'){out.textContent='الملف لازم يكون PDF.';return;}
+    if(f.size>60*1024*1024){out.textContent='الملف كبير (أكتر من 60 ميجا). جرب ملف أصغر.';return;}
+    try{
+      out.textContent='جاري قراءة الملف...';
+      var buf=await f.arrayBuffer();
+      var doc=await pdfjsLib.getDocument({data:new Uint8Array(buf)}).promise,pages=[],chars=0;
+      for(var n=1;n<=doc.numPages;n++){
+        out.textContent='جاري قراءة الصفحة '+n+' من '+doc.numPages+'...';
+        var pg=await doc.getPage(n),tc=await pg.getTextContent();
+        var items=tc.items.map(function(i){return {str:i.str,x:i.transform[4],y:i.transform[5],w:i.width,h:Math.abs(i.transform[3])||i.height,dir:i.dir};});
+        items.forEach(function(i){chars+=i.str.trim().length;});
+        pages.push(items);
+      }
+      if(chars<10){out.textContent='الملف ده يبدو صورة ممسوحة (مفيش نص جواه)، فمفيش حاجة تتحول. الأداة دي مش بتعمل OCR حاليًا.';return;}
+      var res=C.convert(pages),st=C.stats(res),blob,name=f.name.replace(/\.pdf$/i,'');
+      if(KIND==='word'){
+        var d=C.toDocx(res,window.docx); if(!d){out.textContent='ملقيتش نص أحوله.';return;}
+        blob=await window.docx.Packer.toBlob(d);name+='.docx';
+      }else{
+        var wb=C.toXlsx(res,window.XLSX); if(!wb){out.textContent='ملقيتش نص أحوله.';return;}
+        var arr=window.XLSX.write(wb,{bookType:'xlsx',type:'array'});
+        blob=new Blob([arr],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});name+='.xlsx';
+      }
+      if(url)URL.revokeObjectURL(url);
+      url=URL.createObjectURL(blob);dl.href=url;dl.download=name;dl.style.display='inline-block';
+      var msg='تم. '+doc.numPages+' صفحة، '+st.paragraphs+' فقرة، '+st.tables+' جدول ('+st.rows+' صف).';
+      if(KIND!=='word'&&!st.tables)msg+=' ملقيتش جداول واضحة فالنص اتحط في عمود واحد.';
+      out.innerHTML='<div class="big">'+msg+'</div><div>راجع الملف الناتج قبل الاعتماد عليه.</div>';
+    }catch(e){out.textContent='حصلت مشكلة في قراءة الملف (ممكن يكون محمي بباسورد أو تالف).';}
+  };
+})();
+
+</script>
+</body>
+</html>
