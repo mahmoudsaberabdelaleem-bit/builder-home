@@ -79,3 +79,8 @@ table{border-radius:10px;overflow:hidden}
 tbody tr:nth-child(even) td{background:rgba(255,255,255,.025)}
 th{background:#1a1a1a}
 footer{background:#080808}
+
+/* byline on listing and tool pages */
+.art-header:not(:has(.art-meta))::before{content:"م. محمود صابر | مهندس مدني، مدير مكتب فني";display:flex;align-items:center;gap:12px;font-size:.88rem;font-weight:600;letter-spacing:.02em;color:#e6c85c;margin-bottom:14px}
+.art-header:not(:has(.art-meta))::after{content:none}
+@media (max-width:480px){.art-header:not(:has(.art-meta))::before{font-size:.8rem}}
