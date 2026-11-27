@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حاسبة تكلفة تشطيب الشقة بندًا بندًا | المكتب الفني بالعربي</title>
+  <meta name="description" content="احسب ميزانية تشطيب شقتك من كميات قابلة للتعديل وأسعارك الفعلية: كهرباء وسباكة ومحارة وأرضيات ودهانات وأبواب وشبابيك، مع احتياطي وتقرير للطباعة.">
+  <link rel="canonical" href="https://mahmoudsaberabdelaleem-bit.github.io/builder-home/articles/apartment-finishing-cost/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="حاسبة تكلفة تشطيب الشقة بندًا بندًا | المكتب الفني بالعربي">
+  <meta property="og:description" content="احسب ميزانية تشطيب شقتك من كميات قابلة للتعديل وأسعارك الفعلية: كهرباء وسباكة ومحارة وأرضيات ودهانات وأبواب وشبابيك، مع احتياطي وتقرير للطباعة.">
+  <meta property="og:url" content="https://mahmoudsaberabdelaleem-bit.github.io/builder-home/articles/apartment-finishing-cost/">
+  <meta property="og:image" content="https://mahmoudsaberabdelaleem-bit.github.io/builder-home/assets/og-image.png">
+  <meta property="og:locale" content="ar_AR">
+  <meta property="og:site_name" content="المكتب الفني بالعربي">
+  <meta name="twitter:card" content="summary">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <script defer src="https://cdn.counter.dev/script.js" data-id="e8efc146-5f8a-46aa-b41b-715651e75c03" data-utcoffset="2"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "حاسبة تكلفة تشطيب الشقة", "url": "https://mahmoudsaberabdelaleem-bit.github.io/builder-home/articles/apartment-finishing-cost/", "inLanguage": "ar", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "احسب ميزانية تشطيب شقتك من كميات قابلة للتعديل وأسعارك الفعلية: كهرباء وسباكة ومحارة وأرضيات ودهانات وأبواب وشبابيك، مع احتياطي وتقرير للطباعة."}</script>
+
+<link rel="stylesheet" href="calculator.css">
+<link rel="icon" href="../../assets/favicon.ico">
+</head><body>  <nav class="site-nav">
+    <a class="site-nav-brand" href="../../">المكتب الفني بالعربي</a>
+    <div class="site-nav-links">
+      <a href="../../">الرئيسية</a>
+      <a href="../">المقالات</a>
+      <a href="../tools/">الحاسبات</a>
+      <a href="../about/">عن الموقع</a>
+      <a href="../contact/" class="site-nav-cta">تواصل</a>
+    </div>
+  </nav>
+
+<main class="cost-wrap">
+<header class="intro"><span class="eyebrow">أدوات المكتب الفني / ميزانية التشطيب</span><h1>تشطيب شقتك،<br><span>بندًا بندًا.</span></h1><p>شوية بيانات، أسعار من عندك، وصورة أوضح للميزانية.<br>عدّل كل كمية وسعر قبل ما تعتمد النتيجة.</p><div class="chips"><span>بدون تسجيل</span><span>الحساب على جهازك</span><span>تقرير للطباعة</span></div></header>
+<noscript><p class="notice">فعّل JavaScript لتشغيل الحاسبة. الحسابات تتم داخل المتصفح.</p></noscript>
+<section class="panel"><div class="section-title"><span class="step">01</span><div><h2>نبدأ بمساحة الشقة</h2><p>القيم الموجودة مثال أبعاد فقط. استخدم المساحة الداخلية الصافية، مش مساحة العقد. لو معاك مساحة العقد بس، الصافي غالبًا 85–90% منها (مثلًا عقد 100 م² يعني حوالي 85–90 م² صافي)، والأدق تقيسه من اللوحات.</p></div></div>
+<div class="fields">
+<label>المساحة الداخلية الصافية (م²)<input id="area" type="number" min="1" max="10000" step="0.1" value="100"></label>
+<label>أرضيات المطبخ والحمامات (م²)<input id="wet" type="number" min="0" max="10000" step="0.1" value="18"></label>
+<label>عدد الحمامات<input id="baths" type="number" min="0" max="100" step="1" value="2"></label>
+<label>عدد الأبواب شامل المدخل<input id="doors" type="number" min="0" max="100" step="1" value="6"></label>
+<label>مسطح الشبابيك (م²)<input id="windows" type="number" min="0" max="10000" step="0.1" value="12"></label>
+<label>العملة<select id="currency"><option>جنيه مصري</option><option>ريال سعودي</option><option>درهم إماراتي</option><option>دولار أمريكي</option><option>وحدة نقدية</option></select></label>
+</div>
+<details><summary>افتراضات الكميات وحدود الحساب</summary><div class="fields"><label>معامل مساحة الحوائط / المساحة الصافية<input id="wallFactor" type="number" min="0" max="10" step="0.1" value="3"></label><label>مسطح سيراميك الحوائط (م²)<input id="wallTiles" type="number" min="0" max="10000" step="0.1" value="45"></label></div><p>معامل الحوائط 3 افتراض هندسي توضيحي، مش قياس من لوحات. المحارة = المساحة × المعامل + السقف. الدهان = الحوائط + السقف − سيراميك الحوائط. لا نخصم فتحات تلقائيًا؛ عدّل صافي الكميات من الجدول. عزل الأرضيات = مسطح المناطق الرطبة فقط، ولا يشمل ارتفاع الوزرات أو تراكبات العزل. السقف الجبس افتراضيًا غير مشمول. الحمامات والأبواب والشبابيك من مدخلاتك. بنود التجهيز المقطوعية = حزمة واحدة وليست عدد نقاط أو أطوال مواسير.</p><p>الحصر لا يتضمن هالكًا تلقائيًا. أدخل كمية الشراء بعد الهالك أو ضمّنه في سعر الوحدة، مرة واحدة فقط. الآلة لا تعرف حالة شقتك أو مواصفاتها: شيل المنفّذ بالفعل، وأضف أي بند ناقص. لا تشمل إنشائيات أو واجهات أو أثاثًا أو أجهزة أو تكييفات أو ضرائب أو أتعاب إشراف إلا إذا أضفتها. الاحتياطي ليس ضريبة أو ربح مقاول.</p></details>
+<button id="rebuild" class="secondary" type="button">تحديث الكميات من الأبعاد</button><span class="hint">تغيير العملة يغيّر اسمها فقط ولا يحوّل الأسعار. أدخل كل الأسعار بنفس العملة.</span><span class="hint">يستبدل كميات الجدول فقط بعد تأكيدك، ويحفظ أسعارك واختياراتك.</span>
+<p id="validation" role="alert"></p></section>
+<section class="panel"><div class="section-title"><span class="step">02</span><div><h2>اختار البنود وحط أسعارك</h2><p>سعر الوحدة شامل الخامات والمصنعية لنفس المواصفة. كل الأسعار فاضية، مفيش أسعار سوق مفترضة.</p></div></div>
+<div id="demoBanner" class="notice" hidden>مثال تعليمي بأسعار افتراضية غير مرتبطة بالسوق. لا تستخدم نتيجته للشراء أو التعاقد. امسح أسعار المثال وأدخل عروض الموردين.</div>
+<div class="actions"><button id="demo" type="button" class="secondary">جرّب بأسعار تعليمية</button><button id="clear" type="button" class="secondary">مسح كل الأسعار</button></div>
+<p class="hint">الكميات محسوبة من آخر تحديث للأبعاد. بعد أي تعديل في الأعلى، اضغط تحديث الكميات أو عدّلها يدويًا هنا.</p>
+<div class="table-scroll"><table><caption>بنود التشطيب، كميات قابلة للتعديل وأسعار توريد وتركيب</caption><thead><tr><th>داخل الحساب</th><th>البند</th><th>الوحدة</th><th>الكمية</th><th>سعر الوحدة</th><th>الإجمالي</th></tr></thead><tbody id="items"></tbody></table></div>
+<button id="add" class="secondary" type="button">+ إضافة بند مخصص</button>
+</section>
+<section class="panel results" id="results"><div class="section-title"><span class="step">03</span><div><h2>ميزانيتك المبدئية</h2><p id="coverage" aria-live="polite"></p></div></div>
+<div class="result-grid"><div><span id="totalLabel">إجمالي البنود المسعّرة + الاحتياطي</span><strong id="grand">0</strong><small id="moneyLabel"></small></div><div><span>تكلفة المتر الصافي لنفس النطاق</span><strong id="perMeter">0</strong><small>ليست سعر متر تشطيب السوق</small></div></div>
+<div class="fields"><label>احتياطي طوارئ (%)<input id="reserve" type="number" min="0" max="100" step="0.1" value="10"></label><div class="subtotal"><p>قبل الاحتياطي: <b id="subtotal">0</b></p><p>قيمة الاحتياطي: <b id="reserveAmount">0</b></p></div></div>
+<div id="breakdown" class="breakdown"></div><p class="notice">تقدير ميزانية، مش عرض سعر أو مقايسة معتمدة. إجمالي البنود الناقصة أسعارها غير محسوب. راجع الحصر والمواصفات والأسعار مع مهندس وموردين قبل التنفيذ. البنود المقطوعية لا تُضاف فوق نفس الأعمال لو داخلة في عقد شامل.</p>
+<button id="print" type="button" class="primary">طباعة / حفظ PDF</button><p id="printDate" class="hint"></p>
+</section>
+<section class="panel faq"><h2>قبل ما تعتمد الميزانية</h2><h3>ليه مفيش سعر تشطيب ثابت للمتر؟</h3><p>المواصفات والموقع وحالة الشقة بتغير التكلفة. عشان كده بتدخل أسعار عروضك بنفسك، والنتيجة بتوضح البنود غير المسعّرة بدل ما تخفيها.</p><h3>هل دي كل بنود التشطيب؟</h3><p>القائمة تشمل مراحل التشطيب الداخلي الأساسية واختيارات إضافية. كل شقة مختلفة؛ راجع البنود وأضف الناقص، خصوصًا المطبخ والتكييف والأعمال الخاصة.</p><h3>إزاي أطلع نتيجة أقرب للتنفيذ؟</h3><p>استبدل كميات المثال بحصر اللوحات، وسعر كل بند بنفس وحدة القياس وبنفس نطاق التوريد والتركيب. ما تكررش المصنعية أو الهالك أو الضرائب.</p><p><a href="../finishing-quantities-calculator/">حاسبة كميات المحارة والبلاط والدهان</a> · <a href="../tools/">كل الأدوات</a> · <a href="../contact/">طلب مراجعة مقايسة</a></p></section>
+</main><footer>المكتب الفني بالعربي · م. محمود صابر · مدير مكتب فني</footer>
+<script src="calculator.js" defer></script></body></html>
