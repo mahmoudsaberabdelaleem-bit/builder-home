@@ -1,0 +1,32 @@
+{
+ "egypt": {
+  "history": [
+   {
+    "date": "2026-11-26",
+    "ezz": 41294.73,
+    "investment": 38931.83,
+    "cement": 4120.46,
+    "source": "Arab Finance/Zawya عن IDSC (قيم دقيقة محسوبة من التغير المعلن في مصراوي)",
+    "url": "https://www.zawya.com/en/economy/egypt-prices-of-fertilizers-climb-on-november-26-steel-down-2561550"
+   },
+   {
+    "date": "2026-11-27",
+    "ezz": 41525.88,
+    "investment": 39247.24,
+    "cement": 4076.14,
+    "bishay": 39800,
+    "masryeen": 39400,
+    "source": "مصراوي عن بوابة الأسعار بمجلس الوزراء (IDSC)",
+    "url": "https://www.masrawy.com/news/news_economy/details/2026/11/27/3085238/"
+   }
+  ]
+ },
+ "saudi": {
+  "month": "2026-09",
+  "rebar12_sar_ton": 3122.85,
+  "rebar12_yoy": 23.1,
+  "cement_black_sar_50kg": 15.53,
+  "source": "الهيئة العامة للإحصاء عن الوطن وConstruclytic",
+  "url": "https://www.alwatan.com.sa/article/1189034"
+ }
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حاسبة كميات الخرسانة والحديد والبلوك أونلاين مجانًا | المكتب الفني بالعربي</title>
+  <meta name="description" content="حاسبة مجانية لحساب كمية الخرسانة بالمتر المكعب، وزن حديد التسليح بالكيلو والطن، وعدد الطوب أو البلوك للحوائط، مع عرض المعادلات والافتراضات.">
+  <link rel="canonical" href="https://mahmoudsaberabdelaleem-bit.github.io/builder-home/tools/calculator/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="حاسبة كميات الخرسانة والحديد والبلوك أونلاين مجانًا | المكتب الفني بالعربي">
+  <meta property="og:description" content="احسب كمية الخرسانة ووزن الحديد وعدد البلوك مع عرض المعادلة والافتراضات.">
+  <meta property="og:url" content="https://mahmoudsaberabdelaleem-bit.github.io/builder-home/tools/calculator/">
+  <meta property="og:image" content="https://mahmoudsaberabdelaleem-bit.github.io/builder-home/assets/og-image.png">
+  <meta property="og:locale" content="ar_AR">
+  <meta property="og:site_name" content="المكتب الفني بالعربي">
+  <meta name="twitter:card" content="summary">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .calc-box{background:var(--surface);border:1px solid #2a2a2a;border-radius:12px;padding:20px;margin:18px 0}
+    .calc-box h2{margin-top:0}
+    .calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+    .calc-grid label{display:block;font-size:.9rem;color:var(--muted)}
+    .calc-grid input,.calc-grid select{width:100%;margin-top:4px;padding:8px 10px;background:#0a0a0a;color:var(--text);border:1px solid #444;border-radius:8px;font-family:inherit;font-size:1rem}
+    .calc-grid input:focus,.calc-grid select:focus{outline:none;border-color:var(--accent)}
+    .calc-result{margin-top:16px;padding:14px;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.35);border-radius:8px}
+    .calc-result .big{font-size:1.3rem;font-weight:900;color:var(--accent)}
+    .calc-formula{font-size:.85rem;color:var(--muted);margin-top:8px;direction:rtl}
+    .calc-btn{margin-top:14px;background:var(--accent);color:#0a0a0a;font-family:inherit;font-weight:700;border:none;border-radius:24px;padding:8px 26px;cursor:pointer;font-size:1rem}
+  </style>
+<script defer src="https://cdn.counter.dev/script.js" data-id="e8efc146-5f8a-46aa-b41b-715651e75c03" data-utcoffset="2"></script>
+    <link rel="icon" href="/builder-home/assets/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/builder-home/assets/icon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/builder-home/assets/icon-180.png">
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="site-nav-brand" href="../../">المكتب الفني بالعربي</a>
+    <div class="site-nav-links">
+      <a href="../../">الرئيسية</a>
+      <a href="../../articles/">المقالات</a>
+      <a href="../../about/">عن الموقع</a>
+      <a href="../">الحاسبات</a>
+      <a href="../../contact/" class="site-nav-cta">تواصل</a>
+    </div>
+  </nav>
+  <main class="article-wrap">
+    <article>
+      <header class="art-header">
+        <span class="art-keyword">أدوات حصر</span>
+        <h1>حاسبة كميات الخرسانة والحديد والبلوك</h1>
+      </header>
+      <p class="art-intro">ثلاث حاسبات سريعة للحصر التقريبي: كمية الخرسانة بالمتر المكعب، وزن الحديد من الأطوال والأقطار، وعدد البلوك أو الطوب للحوائط. كل حاسبة تعرض المعادلة والافتراضات اللي اتحسبت بيها. الحساب بيتم في متصفحك ولا يتم إرسال أي بيانات.</p>
+
+      <section class="calc-box" id="concrete">
+        <h2>١) كمية الخرسانة (م³)</h2>
+        <div class="calc-grid">
+          <label>الطول (م)<input id="c-l" type="number" min="0" step="any" value="5"></label>
+          <label>العرض (م)<input id="c-w" type="number" min="0" step="any" value="4"></label>
+          <label>السمك أو الارتفاع (م)<input id="c-h" type="number" min="0" step="any" value="0.15"></label>
+          <label>العدد<input id="c-n" type="number" min="1" step="1" value="1"></label>
+          <label>نسبة الهالك (%)<input id="c-waste" type="number" min="0" step="any" value="5"></label>
+        </div>
+        <button class="calc-btn" type="button" id="c-go">احسب</button>
+        <div class="calc-result" id="c-out" aria-live="polite"></div>
+      </section>
+
+      <section class="calc-box" id="steel">
+        <h2>٢) وزن حديد التسليح</h2>
+        <div class="calc-grid">
+          <label>القطر (مم)
+            <select id="s-d"><option>6</option><option>8</option><option>10</option><option selected>12</option><option>14</option><option>16</option><option>18</option><option>20</option><option>22</option><option>25</option><option>28</option><option>32</option></select>
+          </label>
+          <label>طول السيخ الواحد (م)<input id="s-len" type="number" min="0" step="any" value="12"></label>
+          <label>عدد الأسياخ<input id="s-n" type="number" min="1" step="1" value="100"></label>
+          <label>نسبة الهالك (%)<input id="s-waste" type="number" min="0" step="any" value="3"></label>
+        </div>
+        <button class="calc-btn" type="button" id="s-go">احسب</button>
+        <div class="calc-result" id="s-out" aria-live="polite"></div>
+      </section>
+
+      <section class="calc-box" id="blocks">
+        <h2>٣) عدد البلوك أو الطوب للحوائط</h2>
+        <div class="calc-grid">
+          <label>طول الحائط (م)<input id="b-l" type="number" min="0" step="any" value="10"></label>
+          <label>ارتفاع الحائط (م)<input id="b-h" type="number" min="0" step="any" value="3"></label>
+          <label>مساحة الفتحات (م²)<input id="b-open" type="number" min="0" step="any" value="3.6"></label>
+          <label>طول الوحدة (سم)<input id="b-bl" type="number" min="1" step="any" value="40"></label>
+          <label>ارتفاع الوحدة (سم)<input id="b-bh" type="number" min="1" step="any" value="20"></label>
+          <label>سمك المونة (سم)<input id="b-j" type="number" min="0" step="any" value="1"></label>
+          <label>نسبة الهالك (%)<input id="b-waste" type="number" min="0" step="any" value="5"></label>
+        </div>
+        <button class="calc-btn" type="button" id="b-go">احسب</button>
+        <div class="calc-result" id="b-out" aria-live="polite"></div>
+      </section>
+
+      <section class="art-section">
+        <h2>المعادلات والافتراضات</h2>
+        <ul>
+          <li><strong>الخرسانة:</strong> الحجم = الطول × العرض × السمك × العدد، ثم نضيف نسبة الهالك. الافتراضي ٥٪.</li>
+          <li><strong>الحديد:</strong> وزن المتر الطولي (كجم/م) = (القطر بالمم)² ÷ ١٦٢، وهي المعادلة الشائعة وتعادل كثافة صلب ٧٨٥٠ كجم/م³ تقريبًا. الوزن الكلي = وزن المتر × طول السيخ × العدد، ثم نضيف الهالك. الافتراضي ٣٪.</li>
+          <li><strong>البلوك والطوب:</strong> مساحة الحائط الصافية = الطول × الارتفاع − الفتحات. عدد الوحدات في المتر المربع = ١ ÷ ((طول الوحدة + المونة) × (ارتفاع الوحدة + المونة)) بالمتر. العدد الكلي = المساحة الصافية × العدد في المتر المربع، ثم نضيف الهالك. الافتراضي ٥٪.</li>
+        </ul>
+        <div class="key-note">النتائج تقديرية للحصر الأولي وتسعير المناقصات ولا تغني عن الحصر التفصيلي من اللوحات. المقاسات الفعلية للحديد والبلوك تختلف حسب المصنع، فراجع مواصفات المشروع. لا تستخدم الأرقام كبديل عن حساب المهندس المسؤول.</div>
+        <p>لحساب كميات الخرسانة والحديد من اللوحات بشكل تفصيلي: <a href="../../articles/concrete-steel-quantities/">إزاي تحسب كميات الخرسانة والحديد من اللوحات</a>. ولتحليل سعر المتر المكعب: <a href="../../articles/concrete-price-analysis/">تحليل بنود الأسعار للخرسانة المسلحة</a>.</p>
+        <p>حاسبات أخرى: <a href="../slab-reinforcement-calculator/">حديد تسليح البلاطات</a> · <a href="../finishing-quantities-calculator/">كميات التشطيبات</a> · <a href="../payment-certificate-calculator/">المستخلص الجاري</a></p>
+        <!-- مكان رابط متجر قوالب الإكسل: يضاف بعد موافقة صاحب الموقع وتشغيل المتجر -->
+      </section>
+      <div class="art-cta">
+        <p>محتاج حصر كميات أو مقايسة لمشروعك؟</p>
+        <a class="cta-button" href="../../contact/">تواصل معنا</a>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <p>© المكتب الفني بالعربي</p>
+    <p class="footer-links"><a href="../../about/">عن الموقع</a> · <a href="../../privacy/">سياسة الخصوصية</a> · <a href="../../contact/">تواصل</a></p>
+  </footer>
+<script>
+(function(root){
+  function num(v){var x=parseFloat(v);return isFinite(x)&&x>=0?x:NaN;}
+  function concrete(l,w,h,n,waste){
+    var net=l*w*h*n, total=net*(1+waste/100);
+    return {net:net,total:total};
+  }
+  function steel(d,len,n,waste){
+    var kgm=d*d/162, net=kgm*len*n, total=net*(1+waste/100);
+    return {kgm:kgm,net:net,total:total};
+  }
+  function blocks(l,h,open,bl,bh,j,waste){
+    var area=l*h-open; if(area<0)area=0;
+    var perM2=1/(((bl+j)/100)*((bh+j)/100));
+    var net=area*perM2, total=net*(1+waste/100);
+    return {area:area,perM2:perM2,net:net,total:Math.ceil(total)};
+  }
+  root.QCalc={concrete:concrete,steel:steel,blocks:blocks};
+  if(typeof document==='undefined')return;
+  function f(x,d){return x.toLocaleString('en-US',{maximumFractionDigits:d,minimumFractionDigits:0});}
+  function $(id){return document.getElementById(id);}
+  function bad(out){out.innerHTML='أدخل أرقامًا صحيحة (صفر أو أكبر).';}
+  $('c-go').onclick=function(){
+    var l=num($('c-l').value),w=num($('c-w').value),h=num($('c-h').value),n=num($('c-n').value),wa=num($('c-waste').value),o=$('c-out');
+    if([l,w,h,n,wa].some(isNaN))return bad(o);
+    var r=concrete(l,w,h,n,wa);
+    o.innerHTML='<div>الحجم الصافي: <b>'+f(r.net,3)+' م³</b></div><div class="big">الكمية مع الهالك: '+f(r.total,3)+' م³</div><div class="calc-formula">'+f(l,2)+' × '+f(w,2)+' × '+f(h,3)+' × '+f(n,0)+' × (1 + '+f(wa,1)+'٪)</div>';
+  };
+  $('s-go').onclick=function(){
+    var d=num($('s-d').value),len=num($('s-len').value),n=num($('s-n').value),wa=num($('s-waste').value),o=$('s-out');
+    if([d,len,n,wa].some(isNaN))return bad(o);
+    var r=steel(d,len,n,wa);
+    o.innerHTML='<div>وزن المتر الطولي: <b>'+f(r.kgm,3)+' كجم/م</b></div><div>الوزن الصافي: <b>'+f(r.net,1)+' كجم</b></div><div class="big">الوزن مع الهالك: '+f(r.total,1)+' كجم ('+f(r.total/1000,3)+' طن)</div><div class="calc-formula">'+f(d,0)+'² ÷ 162 × '+f(len,2)+' × '+f(n,0)+' × (1 + '+f(wa,1)+'٪)</div>';
+  };
+  $('b-go').onclick=function(){
+    var l=num($('b-l').value),h=num($('b-h').value),op=num($('b-open').value),bl=num($('b-bl').value),bh=num($('b-bh').value),j=num($('b-j').value),wa=num($('b-waste').value),o=$('b-out');
+    if([l,h,op,bl,bh,j,wa].some(isNaN)||bl<=0||bh<=0)return bad(o);
+    var r=blocks(l,h,op,bl,bh,j,wa);
+    o.innerHTML='<div>المساحة الصافية: <b>'+f(r.area,2)+' م²</b></div><div>عدد الوحدات في المتر المربع: <b>'+f(r.perM2,2)+'</b></div><div class="big">العدد مع الهالك: '+f(r.total,0)+' وحدة</div><div class="calc-formula">('+f(l,2)+' × '+f(h,2)+' − '+f(op,2)+') × 1 ÷ (('+f(bl,1)+' + '+f(j,1)+') × ('+f(bh,1)+' + '+f(j,1)+') ÷ 10000) × (1 + '+f(wa,1)+'٪)</div>';
+  };
+  ['c-go','s-go','b-go'].forEach(function(id){$(id).onclick();});
+})(typeof window!=='undefined'?window:globalThis);
+</script>
+</body>
+</html>

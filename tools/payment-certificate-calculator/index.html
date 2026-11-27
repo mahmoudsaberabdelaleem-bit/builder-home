@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حاسبة مستخلص مقاول: المحتجز والخصومات وصافي المستحق | المكتب الفني بالعربي</title>
+  <meta name="description" content="احسب صافي المستحق في المستخلص الجاري من الأعمال التراكمية والسابقة، مع المحتجز واسترداد الدفعة المقدمة والغرامات والضرائب حسب عقدك.">
+  <link rel="canonical" href="https://mahmoudsaberabdelaleem-bit.github.io/builder-home/tools/payment-certificate-calculator/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="حاسبة مستخلص مقاول: المحتجز والخصومات وصافي المستحق | المكتب الفني بالعربي">
+  <meta property="og:description" content="احسب صافي المستحق في المستخلص الجاري من الأعمال التراكمية والسابقة، مع المحتجز واسترداد الدفعة المقدمة والغرامات والضرائب حسب عقدك.">
+  <meta property="og:url" content="https://mahmoudsaberabdelaleem-bit.github.io/builder-home/tools/payment-certificate-calculator/">
+  <meta property="og:image" content="https://mahmoudsaberabdelaleem-bit.github.io/builder-home/assets/og-image.png">
+  <meta property="og:locale" content="ar_AR">
+  <meta property="og:site_name" content="المكتب الفني بالعربي">
+  <meta name="twitter:card" content="summary">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <script defer src="https://cdn.counter.dev/script.js" data-id="e8efc146-5f8a-46aa-b41b-715651e75c03" data-utcoffset="2"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "حاسبة المستخلص الجاري مع الخصومات", "url": "https://mahmoudsaberabdelaleem-bit.github.io/builder-home/tools/payment-certificate-calculator/", "inLanguage": "ar", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "احسب صافي المستحق في المستخلص الجاري من الأعمال التراكمية والسابقة، مع المحتجز واسترداد الدفعة المقدمة والغرامات والضرائب حسب عقدك.", "publisher": {"@type": "Organization", "name": "المكتب الفني بالعربي", "url": "https://mahmoudsaberabdelaleem-bit.github.io/builder-home/"}}</script>
+  <style>
+    .calc-box{background:var(--surface);border:1px solid #2a2a2a;border-radius:12px;padding:20px;margin:18px 0}
+    .calc-box h2{margin-top:0}
+    .calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+    .calc-grid label{display:block;font-size:.9rem;color:var(--muted)}
+    .calc-grid input,.calc-grid select{width:100%;margin-top:4px;padding:8px 10px;background:#0a0a0a;color:var(--text);border:1px solid #444;border-radius:8px;font-family:inherit;font-size:1rem}
+    .calc-grid input:focus,.calc-grid select:focus{outline:none;border-color:var(--accent)}
+    .calc-result{margin-top:16px;padding:14px;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.35);border-radius:8px}
+    .calc-result .big{font-size:1.3rem;font-weight:900;color:var(--accent)}
+    .calc-formula{font-size:.85rem;color:var(--muted);margin-top:8px;direction:rtl}
+    .calc-btn{margin-top:14px;background:var(--accent);color:#0a0a0a;font-family:inherit;font-weight:700;border:none;border-radius:24px;padding:8px 26px;cursor:pointer;font-size:1rem}
+  </style>
+    <link rel="icon" href="/builder-home/assets/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/builder-home/assets/icon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/builder-home/assets/icon-180.png">
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="site-nav-brand" href="../../">المكتب الفني بالعربي</a>
+    <div class="site-nav-links">
+      <a href="../../">الرئيسية</a>
+      <a href="../../articles/">المقالات</a>
+      <a href="../../about/">عن الموقع</a>
+      <a href="../">الحاسبات</a>
+      <a href="../../contact/" class="site-nav-cta">تواصل</a>
+    </div>
+  </nav>
+  <main class="article-wrap">
+    <article>
+      <header class="art-header">
+        <span class="art-keyword">أدوات مستخلصات</span>
+        <h1>حاسبة المستخلص الجاري مع الخصومات</h1>
+      </header>
+      <p class="art-intro">احسب قيمة أعمال المستخلص وصافي المستحق بعد المحتجز واسترداد الدفعة المقدمة وأي خصومات أخرى. النسب كلها بإدخالك حسب عقدك.</p>
+      <section class="calc-box" id="pay">
+        <h2>مستخلص مقاول (دفعة جارية)</h2>
+        <div class="calc-grid">
+          <label>قيمة الأعمال المنفذة التراكمية حتى تاريخه<input id="cum" type="number" min="0" step="any" value="1000000"></label>
+          <label>قيمة الأعمال في المستخلصات السابقة (تراكمي)<input id="prev" type="number" min="0" step="any" value="600000"></label>
+          <label>نسبة المحتجز (ضمان أعمال) من الأعمال الحالية (%)<input id="ret" type="number" min="0" step="any" value="5"></label>
+          <label>نسبة استرداد الدفعة المقدمة من الأعمال الحالية (%)<input id="adv" type="number" min="0" step="any" value="10"></label>
+          <label>غرامات أو خصومات أخرى (مبلغ)<input id="oth" type="number" min="0" step="any" value="0"></label>
+          <label>ضريبة تضاف (%): مثل القيمة المضافة حسب عقدك<input id="vat" type="number" min="0" step="any" value="0"></label>
+          <label>ضريبة تخصم (%): مثل خصم وإضافة حسب عقدك<input id="wht" type="number" min="0" step="any" value="0"></label>
+        </div>
+        <button class="calc-btn" type="button" id="go">احسب</button>
+        <div class="calc-result" id="out" aria-live="polite"></div>
+      </section>
+      <section class="art-section">
+        <h2>المعادلات والافتراضات</h2>
+        <ul>
+          <li><strong>أعمال المستخلص الحالي</strong> = الأعمال التراكمية حتى تاريخه − الأعمال في المستخلصات السابقة.</li>
+          <li><strong>المحتجز واسترداد الدفعة المقدمة</strong> يتحسبوا هنا كنسبة من أعمال المستخلص الحالي. بعض العقود تحسبهم على التراكمي أو بنظام مختلف، فاتبع بند عقدك.</li>
+          <li><strong>الضرائب:</strong> النسب كلها مدخلة منك وافتراضيها صفر. الحاسبة لا تفترض نسبة ضريبة معينة ولا تغني عن مراجعة المحاسب.</li>
+          <li><strong>الحاسبة لا تراجع الكميات.</strong> قيمة الأعمال لازم تيجي من مستخلص كميات مراجع. شوف: <a href="../../articles/subcontractor-statement/">إزاي تعمل مستخلص مقاول الباطن</a> و<a href="../../articles/statement-mistakes/">أخطاء المستخلصات الشائعة</a>.</li>
+        </ul>
+        <div class="key-note">النتائج تقديرية للحصر الأولي والتسعير فقط، ولا تغني عن الحصر التفصيلي من اللوحات ولا عن حساب المهندس المسؤول. راجع مواصفات المشروع وعقده، والكود المصري لتصميم وتنفيذ المنشآت الخرسانية (ECP 203) عند التصميم.</div>
+        <p><a href="../../articles/subcontractor-statement/">مستخلص مقاول الباطن</a> · <a href="../../articles/statement-mistakes/">أخطاء المستخلصات</a> · <a href="../calculator/">حاسبة الخرسانة والحديد والبلوك</a> · <a href="../finishing-quantities-calculator/">حاسبة التشطيبات</a></p>
+      </section>
+      <div class="art-cta">
+        <p>محتاج حصر كميات أو مقايسة لمشروعك؟</p>
+        <a class="cta-button" href="../../contact/">تواصل معنا</a>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <p>© المكتب الفني بالعربي</p>
+    <p class="footer-links"><a href="../../about/">عن الموقع</a> · <a href="../../privacy/">سياسة الخصوصية</a> · <a href="../../contact/">تواصل</a></p>
+  </footer>
+<script>
+(function(root){
+  function f(x,d){return x.toLocaleString('en-US',{maximumFractionDigits:d,minimumFractionDigits:0});}
+  function $(id){return document.getElementById(id);}
+  function num(v){var x=parseFloat(v);return isFinite(x)&&x>=0?x:NaN;}
+  function bad(o){o.innerHTML='أدخل أرقامًا صحيحة (صفر أو أكبر).';}
+
+  function pay(p){
+    var cur=p.cum-p.prev, ret=cur*p.ret/100, adv=cur*p.adv/100, ded=ret+adv+p.oth;
+    var base=cur-ded, vat=cur*p.vat/100, wht=cur*p.wht/100, net=base+vat-wht;
+    return {cur:cur,ret:ret,adv:adv,oth:p.oth,ded:ded,base:base,vat:vat,wht:wht,net:net};
+  }
+  root.PayCalc={pay:pay};
+  if(typeof document==='undefined')return;
+  var ids=['cum','prev','ret','adv','oth','vat','wht'];
+  $('go').onclick=function(){
+    var o=$('out'),p={};ids.forEach(function(k){p[k]=num($(k).value);});
+    if(ids.some(function(k){return isNaN(p[k]);}))return bad(o);
+    if(p.cum<p.prev){o.innerHTML='الأعمال التراكمية أقل من السابقة. راجع الأرقام.';return;}
+    var r=pay(p);
+    o.innerHTML='<div>قيمة أعمال هذا المستخلص: <b>'+f(r.cur,2)+'</b></div>'+
+    '<div>المحتجز: <b>'+f(r.ret,2)+'</b> · استرداد الدفعة المقدمة: <b>'+f(r.adv,2)+'</b> · خصومات أخرى: <b>'+f(r.oth,2)+'</b></div>'+
+    '<div>إجمالي الخصومات: <b>'+f(r.ded,2)+'</b> · صافي بعد الخصومات: <b>'+f(r.base,2)+'</b></div>'+
+    '<div>ضريبة تضاف: <b>'+f(r.vat,2)+'</b> · ضريبة تخصم: <b>'+f(r.wht,2)+'</b></div>'+
+    '<div class="big">صافي المستحق: '+f(r.net,2)+'</div>'+
+    '<div class="calc-formula">أعمال المستخلص = التراكمي − السابق · الصافي = الأعمال − (المحتجز + الاسترداد + أخرى) + الضريبة المضافة − الضريبة المخصومة</div>';
+  };
+  $('go').onclick();
+})(typeof window!=='undefined'?window:globalThis);
+</script>
+</body>
+</html>

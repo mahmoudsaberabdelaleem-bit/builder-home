@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حاسبة حديد التسليح لكل عنصر خرساني: قاعدة وعمود وكمرة وبلاطة | المكتب الفني بالعربي</title>
+  <meta name="description" content="احسب كمية حديد التسليح بالكيلو لكل عنصر خرساني (قاعدة، عمود، كمرة، بلاطة) مع معدل كجم/م³، وسطر جاهز لمنطوق بند الخرسانة في المقايسة.">
+  <link rel="canonical" href="https://mahmoudsaberabdelaleem-bit.github.io/builder-home/tools/rebar-per-element-calculator/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="حاسبة حديد التسليح لكل عنصر خرساني: قاعدة وعمود وكمرة وبلاطة | المكتب الفني بالعربي">
+  <meta property="og:description" content="احسب كمية حديد التسليح بالكيلو لكل عنصر خرساني (قاعدة، عمود، كمرة، بلاطة) مع معدل كجم/م³، وسطر جاهز لمنطوق بند الخرسانة في المقايسة.">
+  <meta property="og:url" content="https://mahmoudsaberabdelaleem-bit.github.io/builder-home/tools/rebar-per-element-calculator/">
+  <meta property="og:image" content="https://mahmoudsaberabdelaleem-bit.github.io/builder-home/assets/og-image.png">
+  <meta property="og:locale" content="ar_AR">
+  <meta property="og:site_name" content="المكتب الفني بالعربي">
+  <meta name="twitter:card" content="summary">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <script defer src="https://cdn.counter.dev/script.js" data-id="e8efc146-5f8a-46aa-b41b-715651e75c03" data-utcoffset="2"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "حاسبة حديد العنصر الخرساني لمنطوق بند المقايسة", "url": "https://mahmoudsaberabdelaleem-bit.github.io/builder-home/tools/rebar-per-element-calculator/", "inLanguage": "ar", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "احسب كمية حديد التسليح بالكيلو لكل عنصر خرساني (قاعدة، عمود، كمرة، بلاطة) مع معدل كجم/م³، وسطر جاهز لمنطوق بند الخرسانة في المقايسة.", "publisher": {"@type": "Organization", "name": "المكتب الفني بالعربي", "url": "https://mahmoudsaberabdelaleem-bit.github.io/builder-home/"}}</script>
+  <style>
+    .calc-box{background:var(--surface);border:1px solid #2a2a2a;border-radius:12px;padding:20px;margin:18px 0}
+    .calc-box h2{margin-top:0}
+    .calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+    .calc-grid label{display:block;font-size:.9rem;color:var(--muted)}
+    .calc-grid input,.calc-grid select{width:100%;margin-top:4px;padding:8px 10px;background:#0a0a0a;color:var(--text);border:1px solid #444;border-radius:8px;font-family:inherit;font-size:1rem}
+    .calc-grid input:focus,.calc-grid select:focus{outline:none;border-color:var(--accent)}
+    .calc-result{margin-top:16px;padding:14px;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.35);border-radius:8px}
+    .calc-result .big{font-size:1.3rem;font-weight:900;color:var(--accent)}
+    .calc-formula{font-size:.85rem;color:var(--muted);margin-top:8px;direction:rtl}
+    .calc-btn{margin-top:14px;background:var(--accent);color:#0a0a0a;font-family:inherit;font-weight:700;border:none;border-radius:24px;padding:8px 26px;cursor:pointer;font-size:1rem}
+  </style>
+    <link rel="icon" href="/builder-home/assets/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/builder-home/assets/icon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/builder-home/assets/icon-180.png">
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="site-nav-brand" href="../../">المكتب الفني بالعربي</a>
+    <div class="site-nav-links">
+      <a href="../../">الرئيسية</a>
+      <a href="../../articles/">المقالات</a>
+      <a href="../">الحاسبات</a>
+      <a href="../../about/">عن الموقع</a>
+      <a href="../../contact/" class="site-nav-cta">تواصل</a>
+    </div>
+  </nav>
+  <main class="article-wrap">
+    <article>
+      <header class="art-header">
+        <span class="art-keyword">أدوات حصر</span>
+        <h1>حاسبة حديد العنصر الخرساني لمنطوق بند المقايسة</h1>
+      </header>
+      <p class="art-intro">أدخل أبعاد العنصر وجدول الأسياخ والكانات، واحصل على وزن الحديد ومعدله لكل م³ وسطر جاهز تحطه في منطوق بند الخرسانة.</p>
+      <section class="calc-box" id="rb">
+        <h2>العنصر الخرساني</h2>
+        <div class="calc-grid">
+          <label>نوع العنصر
+            <select id="type"><option value="column">عمود</option><option value="beam">كمرة</option><option value="footing">قاعدة</option><option value="slab">بلاطة</option></select>
+          </label>
+          <label>عدد العناصر المتشابهة<input id="n" type="number" min="1" step="1" value="1"></label>
+          <label id="la">البعد الأول (م)<input id="A" type="number" min="0" step="any" value="0.3"></label>
+          <label id="lb">البعد الثاني (م)<input id="B" type="number" min="0" step="any" value="0.3"></label>
+          <label id="lc">البعد الثالث (م)<input id="C" type="number" min="0" step="any" value="3"></label>
+          <label>الغطاء الخرساني (سم)<input id="cv" type="number" min="0" step="any" value="3"></label>
+          <label>نسبة الهالك (%)<input id="wa" type="number" min="0" step="any" value="0"></label>
+        </div>
+        <p class="calc-formula" id="dimhint"></p>
+        <h3>جدول الأسياخ للعنصر الواحد</h3>
+        <div id="rows"></div>
+        <button class="calc-btn" type="button" id="add">+ أضف صف</button>
+        <button class="calc-btn" type="button" id="go">احسب</button>
+        <div class="calc-result" id="out" aria-live="polite"></div>
+        <label style="display:block;margin-top:14px;color:var(--muted)">سطر جاهز للنسخ في منطوق البند
+          <textarea id="boq" readonly rows="4" style="width:100%;margin-top:6px;padding:10px;background:#0a0a0a;color:var(--text);border:1px solid #444;border-radius:8px;font-family:inherit"></textarea>
+        </label>
+        <button class="calc-btn" type="button" id="copy">انسخ السطر</button>
+      </section>
+      <section class="art-section">
+        <h2>المعادلات والافتراضات</h2>
+        <ul>
+          <li><strong>الأبعاد:</strong> حجم الخرسانة = البعد الأول × الثاني × الثالث (بالمتر). العمود: العرض × العمق × الارتفاع. الكمرة: العرض × العمق × الطول. القاعدة: الطول × العرض × السمك. البلاطة: الطول × العرض × السمك.</li>
+          <li><strong>الأسياخ الرئيسية:</strong> الوزن = القطر² ÷ ١٦٢ × (طول السيخ + الإضافة) × العدد. الإضافة بالسنتيمتر للثنيات أو الوصلات أو أسياخ الانتظار، وتدخلها من اللوحات.</li>
+          <li><strong>الكانات:</strong> العدد = الطول ÷ التباعد + ١ مقربًا لأسفل. طول الكانة = ٢ × (العرض − ٢ × الغطاء + العمق − ٢ × الغطاء) + إضافة الأكواع بالسنتيمتر (افتراضي ٢٠ سم تقريبي).</li>
+          <li><strong>معدل الحديد:</strong> كجم ÷ م³ خرسانة العنصر، يطلع كمرجع لمقارنة اللوحات، وليس حدًا من كود.</li>
+          <li><strong>سطر المنطوق</strong> صيغة مقترحة تعدلها حسب نموذج المقايسة وشروط المشروع. الهالك صفر افتراضيًا، زوده لو تسعيرك يشمله.</li>
+          <li>الحاسبة لا تصمم العنصر ولا تتحقق من كفاية التسليح. الأرقام من مدخلاتك أنت.</li>
+        </ul>
+        <div class="key-note">النتائج تقديرية للحصر الأولي والتسعير فقط، ولا تغني عن الحصر التفصيلي من اللوحات ولا عن حساب المهندس المسؤول. راجع مواصفات المشروع وعقده، والكود المصري لتصميم وتنفيذ المنشآت الخرسانية (ECP 203) عند التصميم.</div>
+        <p><a href="../">كل الحاسبات</a> · <a href="../../articles/concrete-steel-quantities/">إزاي تحسب كميات الخرسانة والحديد من اللوحات</a> · <a href="../../articles/concrete-price-analysis/">تحليل بنود الأسعار للخرسانة المسلحة</a> · <a href="../../articles/what-is-boq/">ما هو BOQ</a></p>
+      </section>
+      <div class="art-cta">
+        <p>محتاج حصر كميات أو مقايسة لمشروعك؟</p>
+        <a class="cta-button" href="../../contact/">تواصل معنا</a>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <p>© المكتب الفني بالعربي</p>
+    <p class="footer-links"><a href="../../about/">عن الموقع</a> · <a href="../../privacy/">سياسة الخصوصية</a> · <a href="../../contact/">تواصل</a></p>
+  </footer>
+<script>
+(function(root){
+  function f(x,d){return x.toLocaleString('en-US',{maximumFractionDigits:d,minimumFractionDigits:0});}
+  function num(v){var x=parseFloat(v);return isFinite(x)&&x>=0?x:NaN;}
+  var NAMES={column:'عمود',beam:'كمرة',footing:'قاعدة',slab:'بلاطة'};
+  var LABELS={column:['العرض (م)','العمق (م)','الارتفاع (م)','عرض × عمق × ارتفاع. الكانات تتوزع على الارتفاع.'],beam:['العرض (م)','العمق (م)','الطول (م)','عرض × عمق × طول. الكانات تتوزع على الطول.'],footing:['الطول (م)','العرض (م)','السمك (م)','طول × عرض × سمك.'],slab:['الطول (م)','العرض (م)','السمك (م)','طول × عرض × سمك.']};
+  var PRESETS={
+    column:{d:[0.3,0.3,3],rows:[['رئيسي','main',16,8,3.6,0],['كانات','stir',8,15,0,20]]},
+    beam:{d:[0.25,0.6,5],rows:[['علوي','main',16,2,5.3,0],['سفلي','main',16,3,5.3,0],['كانات','stir',8,15,0,20]]},
+    footing:{d:[2,2,0.5],rows:[['سفلي اتجاه 1','main',16,14,1.9,10],['سفلي اتجاه 2','main',16,14,1.9,10]]},
+    slab:{d:[5,4,0.14],rows:[['سفلي اتجاه 1','main',10,27,4.16,0],['سفلي اتجاه 2','main',10,34,5.16,0]]}
+  };
+  function calc(p){
+    var vol=p.A*p.B*p.C, rows=[], net=0;
+    p.rows.forEach(function(r){
+      var kgm=r.d*r.d/162, cnt, len, kg;
+      if(r.t==='stir'){
+        cnt=r.s>0?Math.floor(p.C/(r.s/100))+1:0;
+        len=2*(Math.max(p.A-2*p.cv/100,0)+Math.max(p.B-2*p.cv/100,0))+r.ex/100;
+      }else{cnt=r.n;len=r.l+r.ex/100;}
+      kg=kgm*len*cnt; net+=kg; rows.push({name:r.name,t:r.t,d:r.d,cnt:cnt,len:len,kg:kg});
+    });
+    var per=net*(1+p.wa/100), total=per*p.n, rate=vol>0?per/vol:0;
+    return {vol:vol,rows:rows,net:net,per:per,total:total,rate:rate,volTotal:vol*p.n};
+  }
+  function boqLine(type,p,r){
+    return 'خرسانة مسلحة ('+NAMES[type]+(p.n>1?'، عدد '+f(p.n,0):'')+')، حجم الخرسانة '+f(r.volTotal,2)+' م³، شاملة حديد التسليح بمعدل تقريبي '+f(r.rate,0)+' كجم/م³ (حوالي '+f(r.per,0)+' كجم للعنصر الواحد، '+f(r.total,0)+' كجم إجمالي)، حسب مواصفات المشروع.';
+  }
+  root.RebarCalc={calc:calc,boqLine:boqLine};
+  if(typeof document==='undefined')return;
+  function $(id){return document.getElementById(id);}
+  var DIAS=[6,8,10,12,14,16,18,20,22,25,28,32];
+  function rowHtml(r){
+    var opts=DIAS.map(function(d){return '<option'+(d==r[2]?' selected':'')+'>'+d+'</option>';}).join('');
+    var stir=r[1]==='stir';
+    return '<div class="calc-grid rbrow" style="margin-bottom:10px;border-bottom:1px solid #2a2a2a;padding-bottom:10px">'+
+    '<label>الاسم<input class="r-name" type="text" value="'+r[0]+'"></label>'+
+    '<label>النوع<select class="r-type"><option value="main"'+(stir?'':' selected')+'>أسياخ رئيسية</option><option value="stir"'+(stir?' selected':'')+'>كانات</option></select></label>'+
+    '<label>القطر (مم)<select class="r-d">'+opts+'</select></label>'+
+    '<label class="r-nl">'+(stir?'التباعد (سم)':'العدد')+'<input class="r-n" type="number" min="0" step="any" value="'+r[3]+'"></label>'+
+    '<label class="r-ll"'+(stir?' style="display:none"':'')+'>طول السيخ (م)<input class="r-l" type="number" min="0" step="any" value="'+r[4]+'"></label>'+
+    '<label>إضافة (سم)<input class="r-ex" type="number" min="0" step="any" value="'+r[5]+'"></label>'+
+    '<label>&nbsp;<button type="button" class="calc-btn r-del" style="margin-top:4px">حذف</button></label></div>';
+  }
+  function bindRows(){
+    [].forEach.call(document.querySelectorAll('.rbrow'),function(row){
+      row.querySelector('.r-del').onclick=function(){row.parentNode.removeChild(row);};
+      row.querySelector('.r-type').onchange=function(){
+        var s=this.value==='stir';
+        row.querySelector('.r-nl').firstChild.nodeValue=s?'التباعد (سم)':'العدد';
+        row.querySelector('.r-ll').style.display=s?'none':'block';
+      };
+    });
+  }
+  function setRows(list){$('rows').innerHTML=list.map(rowHtml).join('');bindRows();}
+  function applyType(){
+    var t=$('type').value,L=LABELS[t],P=PRESETS[t];
+    $('la').firstChild.nodeValue=L[0];$('lb').firstChild.nodeValue=L[1];$('lc').firstChild.nodeValue=L[2];$('dimhint').textContent=L[3];
+    $('A').value=P.d[0];$('B').value=P.d[1];$('C').value=P.d[2];setRows(P.rows);
+  }
+  function read(){
+    var p={A:num($('A').value),B:num($('B').value),C:num($('C').value),n:num($('n').value),cv:num($('cv').value),wa:num($('wa').value),rows:[]};
+    var ok=![p.A,p.B,p.C,p.n,p.cv,p.wa].some(isNaN)&&p.n>=1;
+    [].forEach.call(document.querySelectorAll('.rbrow'),function(row){
+      var t=row.querySelector('.r-type').value,v=num(row.querySelector('.r-n').value),l=num(row.querySelector('.r-l').value),ex=num(row.querySelector('.r-ex').value),d=num(row.querySelector('.r-d').value);
+      if(isNaN(v)||isNaN(ex)||isNaN(d)||(t==='main'&&isNaN(l)))ok=false;
+      p.rows.push({name:row.querySelector('.r-name').value||'صف',t:t,d:d,n:v,s:v,l:l,ex:ex});
+    });
+    return ok?p:null;
+  }
+  $('type').onchange=function(){applyType();$('go').onclick();};
+  $('add').onclick=function(){$('rows').insertAdjacentHTML('beforeend',rowHtml(['صف جديد','main',12,2,3,0]));bindRows();};
+  $('go').onclick=function(){
+    var o=$('out'),p=read();
+    if(!p){o.innerHTML='أدخل أرقامًا صحيحة (صفر أو أكبر، وعدد العناصر ١ على الأقل).';return;}
+    var r=calc(p),h='';
+    r.rows.forEach(function(x){h+='<div>'+x.name+': قطر '+f(x.d,0)+' مم × '+f(x.cnt,0)+(x.t==='stir'?' كانة':' سيخ')+' × '+f(x.len,2)+' م = <b>'+f(x.kg,1)+' كجم</b></div>';});
+    h+='<div>حجم خرسانة العنصر الواحد: <b>'+f(r.vol,3)+' م³</b></div><div>حديد العنصر الواحد (صافي): <b>'+f(r.net,1)+' كجم</b></div>';
+    h+='<div class="big">معدل الحديد: '+f(r.rate,0)+' كجم/م³ · الإجمالي لـ '+f(p.n,0)+' عنصر: '+f(r.total,0)+' كجم ('+f(r.total/1000,3)+' طن)</div>';
+    h+='<div class="calc-formula">الوزن = القطر² ÷ ١٦٢ × الطول × العدد · المعدل = الحديد ÷ حجم الخرسانة</div>';
+    o.innerHTML=h;$('boq').value=boqLine($('type').value,p,r);
+  };
+  $('copy').onclick=function(){var t=$('boq');t.select();try{navigator.clipboard.writeText(t.value);}catch(e){document.execCommand('copy');}this.textContent='تم النسخ';var b=this;setTimeout(function(){b.textContent='انسخ السطر';},1500);};
+  applyType();$('go').onclick();
+})(typeof window!=='undefined'?window:globalThis);
+</script>
+</body>
+</html>
