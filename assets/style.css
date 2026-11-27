@@ -55,10 +55,10 @@ footer { text-align: center; padding: 30px 20px; border-top: 1px solid #2a2a2a; 
 /* ===== Professional polish layer (2026-11-26) ===== */
 .site-nav{background:rgba(10,10,10,.82)!important;-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent!important;border-image:linear-gradient(90deg,transparent,rgba(212,175,55,.55),transparent) 1;box-shadow:0 6px 24px rgba(0,0,0,.35)}
 .site-nav-brand{display:inline-flex;align-items:center;gap:12px;letter-spacing:.02em;text-decoration:none}
-.site-nav-brand::after{content:"م. محمود صابر";font-family:'Cairo',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:0;color:#d4af37;opacity:.92;padding-inline-start:12px;border-inline-start:1px solid rgba(212,175,55,.5);line-height:1.2;white-space:nowrap}
+.site-nav-owner{font-family:'Cairo',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:0;color:#d4af37;opacity:.92;padding-inline-start:12px;border-inline-start:1px solid rgba(212,175,55,.5);line-height:1.2;white-space:nowrap}
 .site-nav-links a{transition:color .2s}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #d4af37;outline-offset:3px;border-radius:6px}
-@media (max-width:420px){.site-nav-brand{gap:8px}.site-nav-brand::after{font-size:.7rem;padding-inline-start:8px}}
+@media (max-width:420px){.site-nav-brand{gap:8px}.site-nav-owner{font-size:.7rem;padding-inline-start:8px}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 body{background:radial-gradient(900px 380px at 50% -120px,rgba(212,175,55,.09),transparent 70%),#0a0a0a;background-attachment:scroll}
 .article-wrap{padding-top:38px}
