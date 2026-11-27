@@ -84,3 +84,5 @@ footer{background:#080808}
 .art-header:not(:has(.art-meta))::before{content:"م. محمود صابر · مدير مكتب فني";display:flex;align-items:center;gap:12px;font-size:.85rem;font-weight:400;letter-spacing:.02em;color:#d9bf63;opacity:.9;margin-bottom:14px}
 .art-header:not(:has(.art-meta))::after{content:none}
 @media (max-width:480px){.art-header:not(:has(.art-meta))::before{font-size:.8rem}}
+
+.ad-slot:empty{display:none}

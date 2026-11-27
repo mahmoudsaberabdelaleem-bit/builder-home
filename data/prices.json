@@ -6,8 +6,12 @@
     "ezz": 41294.73,
     "investment": 38931.83,
     "cement": 4120.46,
-    "source": "Arab Finance/Zawya عن IDSC (قيم دقيقة محسوبة من التغير المعلن في مصراوي)",
-    "url": "https://www.zawya.com/en/economy/egypt-prices-of-fertilizers-climb-on-november-26-steel-down-2561550"
+    "source": "مصراوي عن بوابة الأسعار بمجلس الوزراء (IDSC)",
+    "url": "https://www.masrawy.com/news/news_economy/details/2026/11/26/3084766/",
+    "bishay": 39800,
+    "masryeen": 39400,
+    "marakby": 39400,
+    "attal": 39500
    },
    {
     "date": "2026-11-27",
@@ -17,7 +21,9 @@
     "bishay": 39800,
     "masryeen": 39400,
     "source": "مصراوي عن بوابة الأسعار بمجلس الوزراء (IDSC)",
-    "url": "https://www.masrawy.com/news/news_economy/details/2026/11/27/3085238/"
+    "url": "https://www.masrawy.com/news/news_economy/details/2026/11/27/3085238/",
+    "marakby": 39400,
+    "attal": 39500
    }
   ]
  },
@@ -36,7 +42,7 @@
    "unit": "جنيه/طن",
    "updated": "2026-11-27",
    "source": "مصراوي عن بوابة الأسعار بمجلس الوزراء (IDSC)",
-   "note": "تسليم أرض المصنع، استرشادي"
+   "note": "استرشادي، نقطة التسليم غير محددة في المصدر"
   },
   {
    "item": "حديد استثماري",
@@ -44,7 +50,7 @@
    "unit": "جنيه/طن",
    "updated": "2026-11-27",
    "source": "مصراوي عن بوابة الأسعار بمجلس الوزراء (IDSC)",
-   "note": "تسليم أرض المصنع، استرشادي"
+   "note": "استرشادي، نقطة التسليم غير محددة في المصدر"
   },
   {
    "item": "أسمنت رمادي (متوسط)",
@@ -52,7 +58,7 @@
    "unit": "جنيه/طن",
    "updated": "2026-11-27",
    "source": "مصراوي عن بوابة الأسعار بمجلس الوزراء (IDSC)",
-   "note": "تسليم أرض المصنع، استرشادي"
+   "note": "استرشادي، نقطة التسليم غير محددة في المصدر"
   },
   {
    "item": "حديد تسليح 12 مم (السعودية)",
