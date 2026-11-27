@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>حاسبة حديد التسليح لكل عنصر خرساني: قاعدة وعمود وكمرة وبلاطة | المكتب الفني بالعربي</title>
+  <title>حاسبة حديد التسليح لكل عنصر خرساني | المكتب الفني بالعربي</title>
   <meta name="description" content="احسب كمية حديد التسليح بالكيلو لكل عنصر خرساني (قاعدة، عمود، كمرة، بلاطة) مع معدل كجم/م³، وسطر جاهز لمنطوق بند الخرسانة في المقايسة.">
   <link rel="canonical" href="https://mahmoudsaberabdelaleem-bit.github.io/builder-home/tools/rebar-per-element-calculator/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="حاسبة حديد التسليح لكل عنصر خرساني: قاعدة وعمود وكمرة وبلاطة | المكتب الفني بالعربي">
+  <meta property="og:title" content="حاسبة حديد التسليح لكل عنصر خرساني">
   <meta property="og:description" content="احسب كمية حديد التسليح بالكيلو لكل عنصر خرساني (قاعدة، عمود، كمرة، بلاطة) مع معدل كجم/م³، وسطر جاهز لمنطوق بند الخرسانة في المقايسة.">
   <meta property="og:url" content="https://mahmoudsaberabdelaleem-bit.github.io/builder-home/tools/rebar-per-element-calculator/">
   <meta property="og:image" content="https://mahmoudsaberabdelaleem-bit.github.io/builder-home/assets/og-image.png">
   <meta property="og:locale" content="ar_EG">
   <meta property="og:site_name" content="المكتب الفني بالعربي">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="حاسبة حديد التسليح لكل عنصر خرساني: قاعدة وعمود وكمرة وبلاطة | المكتب الفني بالعربي">
+  <meta name="twitter:title" content="حاسبة حديد التسليح لكل عنصر خرساني">
   <meta name="twitter:description" content="احسب كمية حديد التسليح بالكيلو لكل عنصر خرساني (قاعدة، عمود، كمرة، بلاطة) مع معدل كجم/م³، وسطر جاهز لمنطوق بند الخرسانة في المقايسة.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <script defer src="https://cdn.counter.dev/script.js" data-id="e8efc146-5f8a-46aa-b41b-715651e75c03" data-utcoffset="2"></script>
@@ -38,6 +38,7 @@
     <link rel="icon" href="/builder-home/assets/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="/builder-home/assets/icon-32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/builder-home/assets/icon-180.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "إزاي بتتحسب الكانات؟", "acceptedAnswer": {"@type": "Answer", "text": "العدد = الطول ÷ التباعد + 1 مقربًا لأسفل، وطول الكانة = 2 × (العرض − 2 × الغطاء + العمق − 2 × الغطاء) + إضافة الأكواع."}}, {"@type": "Question", "name": "الهالك بيتحسب؟", "acceptedAnswer": {"@type": "Answer", "text": "صفر افتراضيًا. زوده لو تسعيرك يشمله."}}, {"@type": "Question", "name": "الأرقام من فين؟", "acceptedAnswer": {"@type": "Answer", "text": "من مدخلاتك أنت، والنتيجة تقديرية للحصر الأولي."}}]}</script>
 </head>
 <body>
   <nav class="site-nav">
@@ -83,8 +84,8 @@
         <h2>المعادلات والافتراضات</h2>
         <ul>
           <li><strong>الأبعاد:</strong> حجم الخرسانة = البعد الأول × الثاني × الثالث (بالمتر). العمود: العرض × العمق × الارتفاع. الكمرة: العرض × العمق × الطول. القاعدة: الطول × العرض × السمك. البلاطة: الطول × العرض × السمك.</li>
-          <li><strong>الأسياخ الرئيسية:</strong> الوزن = القطر² ÷ ١٦٢ × (طول السيخ + الإضافة) × العدد. الإضافة بالسنتيمتر للثنيات أو الوصلات أو أسياخ الانتظار، وتدخلها من اللوحات.</li>
-          <li><strong>الكانات:</strong> العدد = الطول ÷ التباعد + ١ مقربًا لأسفل. طول الكانة = ٢ × (العرض − ٢ × الغطاء + العمق − ٢ × الغطاء) + إضافة الأكواع بالسنتيمتر (افتراضي ٢٠ سم تقريبي).</li>
+          <li><strong>الأسياخ الرئيسية:</strong> الوزن = القطر² ÷ 162 × (طول السيخ + الإضافة) × العدد. الإضافة بالسنتيمتر للثنيات أو الوصلات أو أسياخ الانتظار، وتدخلها من اللوحات.</li>
+          <li><strong>الكانات:</strong> العدد = الطول ÷ التباعد + 1 مقربًا لأسفل. طول الكانة = 2 × (العرض − 2 × الغطاء + العمق − 2 × الغطاء) + إضافة الأكواع بالسنتيمتر (افتراضي 20 سم تقريبي).</li>
           <li><strong>معدل الحديد:</strong> كجم ÷ م³ خرسانة العنصر، يطلع كمرجع لمقارنة اللوحات، وليس حدًا من كود.</li>
           <li><strong>سطر المنطوق</strong> صيغة مقترحة تعدلها حسب نموذج المقايسة وشروط المشروع. الهالك صفر افتراضيًا، زوده لو تسعيرك يشمله.</li>
           <li>الحاسبة لا تصمم العنصر ولا تتحقق من كفاية التسليح. الأرقام من مدخلاتك أنت.</li>
@@ -97,7 +98,10 @@
         <a class="cta-button" href="../../contact/">تواصل معنا</a>
       </div>
     </article>
-        <div class="art-cta" data-funnel="1"><p>محتاج الرسومات التنفيذية لمشروعك؟ ابعتلي التفاصيل وأحدد لك النطاق والمدة كتابيًا.</p><a class="cta-button" href="https://wa.me/201069609878?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%85.%20%D9%85%D8%AD%D9%85%D9%88%D8%AF%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%B1%D8%B3%D9%88%D9%85%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%8A%D8%A9%20Shop%20Drawings.%0A%D9%86%D9%88%D8%B9%20%D8%A7%D9%84%D9%85%D8%B4%D8%B1%D9%88%D8%B9%3A%20%0A%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%AD%D8%A9%3A%20%0A%D8%A7%D9%84%D9%85%D9%88%D9%82%D8%B9%3A%20%0A%D8%A7%D9%84%D9%84%D9%88%D8%AD%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%AA%D8%A7%D8%AD%D8%A9%3A%20%0A%D8%A7%D9%84%D9%85%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B7%D9%84%D9%88%D8%A8%D8%A9%3A%20" target="_blank" rel="noopener">اطلب عرض سعر عن طريق واتساب</a> <a class="cta-button" style="background:transparent;border:1px solid currentColor" href="../../services/shop-drawings/">تفاصيل الخدمة</a></div>
+        <section class="art-section" data-extra="1"><h2>مثال محلول</h2><p>أرقام افتراضية للتوضيح فقط: عمود 0.30 × 0.50 م وارتفاعه 3 م = 0.45 م³. 8 أسياخ قطر 16 مم، طول كل سيخ 3 م + 0.4 م إضافة أسياخ انتظار = وزن المتر 16² ÷ 162 = 1.58 كجم/م، فالوزن = 42.98 كجم. المعدل للأسياخ الرئيسية فقط = 42.98 ÷ 0.45 = 95.5 كجم/م³ (من غير الكانات).</p>
+      <h2>أخطاء شائعة</h2><ul><li>مقارنة معدل الحديد بكود. المعدل مرجع للمقارنة السريعة مش حد مطلوب.</li><li>حساب الأسياخ الرئيسية بدون الإضافة المطلوبة للثنيات والوصلات.</li><li>اعتبار إن الحاسبة بتصمم أو بتتحقق من كفاية التسليح. هي حصر بس.</li></ul>
+      <h2>أسئلة شائعة</h2><h3>إزاي بتتحسب الكانات؟</h3><p>العدد = الطول ÷ التباعد + 1 مقربًا لأسفل، وطول الكانة = 2 × (العرض − 2 × الغطاء + العمق − 2 × الغطاء) + إضافة الأكواع.</p><h3>الهالك بيتحسب؟</h3><p>صفر افتراضيًا. زوده لو تسعيرك يشمله.</p><h3>الأرقام من فين؟</h3><p>من مدخلاتك أنت، والنتيجة تقديرية للحصر الأولي.</p></section>
+      <div class="art-cta" data-funnel="1"><p>محتاج الرسومات التنفيذية لمشروعك؟ ابعتلي التفاصيل وأحدد لك النطاق والمدة كتابيًا.</p><a class="cta-button" href="https://wa.me/201069609878?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%85.%20%D9%85%D8%AD%D9%85%D9%88%D8%AF%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%B1%D8%B3%D9%88%D9%85%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%8A%D8%A9%20Shop%20Drawings.%0A%D9%86%D9%88%D8%B9%20%D8%A7%D9%84%D9%85%D8%B4%D8%B1%D9%88%D8%B9%3A%20%0A%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%AD%D8%A9%3A%20%0A%D8%A7%D9%84%D9%85%D9%88%D9%82%D8%B9%3A%20%0A%D8%A7%D9%84%D9%84%D9%88%D8%AD%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%AA%D8%A7%D8%AD%D8%A9%3A%20%0A%D8%A7%D9%84%D9%85%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%B7%D9%84%D9%88%D8%A8%D8%A9%3A%20" target="_blank" rel="noopener">اطلب عرض سعر عن طريق واتساب</a> <a class="cta-button" style="background:transparent;border:1px solid currentColor" href="../../services/shop-drawings/">تفاصيل الخدمة</a></div>
       <div class="ad-slot" aria-hidden="true">مساحة إعلانية</div>
       <aside class="related"><h2>كمّل من هنا</h2><ul><li>خدمة مرتبطة: <a href="../../services/shop-drawings/">الرسومات التنفيذية</a></li></ul></aside>
   </main>
